@@ -12,6 +12,7 @@
         "project": [
           "tsconfig.json"
         ],
+        "tsconfigRootDir": "d:/git/youtube-client/ng-app/",
         "createDefaultProgram": true
       },
       "extends": [
