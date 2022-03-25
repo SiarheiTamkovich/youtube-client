@@ -48,7 +48,9 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "lines-between-class-members": "off",
+      }
     }
   ]
 }

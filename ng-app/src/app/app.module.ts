@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { CardComponent } from './main/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchItemComponent } from './search/search-item/search-item.component';
+import { SearchResultsComponent } from './search/search-results/search-results.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MainComponent, CardComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  declarations: [AppComponent, HeaderComponent, SearchItemComponent, SearchResultsComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
