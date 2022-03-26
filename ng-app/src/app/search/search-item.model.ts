@@ -1,49 +1,49 @@
-export interface searchItemModel {
-  kind: String;
-  etag: String;
-  id:   String;
+export interface SearchItemModel {
+  kind: string,
+  etag: string,
+  id:   string,
   snippet:{
-    publishedAt: String;
-    channelId:   String;
-    title:       String;
-    description: String;
+    publishedAt: string,
+    channelId:   string,
+    title:       string,
+    description: string,
     thumbnails: {
       default: {
-        url:    String;
-        with:   Number;
-        height: Number;
+        url:    string,
+        with:   number,
+        height: number,
       }
       medium: {
-        url:    String;
-        with:   Number;
-        height: Number;
+        url:    string,
+        with:   number,
+        height: number,
       }
       standart: {
-        url:    String;
-        with:   Number;
-        height: Number;
+        url:    string,
+        with:   number,
+        height: number,
       }
       maxres: {
-        url:    String;
-        with:   Number;
-        height: Number;
+        url:    string,
+        with:   number,
+        height: number,
       }
     }
-    channelTitle: String;
-    tags:         String[];
-    categoryId:   String;
-    liveBroadcastContent: String;
+    channelTitle: string,
+    tags:         string[],
+    categoryId:   string,
+    liveBroadcastContent: string,
     localized: {
-      title: String;
-      description: String;
+      title: string,
+      description: string,
     }
-    defaultAudioLanguage: String;
+    defaultAudioLanguage: string,
   }
   statistics: {
-    viewCount:     String;
-    likeCount:     String;
-    dislikeCount:  String;
-    favoriteCount: String;
-    commentCount:  String;
+    viewCount:     string,
+    likeCount:     string,
+    dislikeCount:  string,
+    favoriteCount: string,
+    commentCount:  string,
   }
 }

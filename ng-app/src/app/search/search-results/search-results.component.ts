@@ -1,27 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  template: `
+    <p>search-results works!</p>
+    <app-search-item></app-search-item>
+    <!-- <button (click)="getData()">search</button> -->
+  `,
+  styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
 
-  data: object = {};
+  public videoData = {};
 
-  constructor(private http: HttpClient) {}
-
-  getData() {
-    const url = '../assets/response.json';
-    this.http.get(url).subscribe((res) => {
-      this.data = res;
-      console.log(this.data);
-    });
-  }
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {
-    this.getData();
+    this.searchService.getData().subscribe();
   }
 
 }

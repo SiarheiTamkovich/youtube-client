@@ -1,11 +1,11 @@
-import { searchItemModel } from "./search-item.model";
+import { SearchItemModel } from "./search-item.model";
 
-export interface searchResponseModel {
-  kind: String;
-  etag: String;
+export interface SearchResponseModel {
+  kind: string,
+  etag: string,
   pageInfo: {
-    totalResults: Number;
-    resultsPerPage: Number;
+    totalResults: number,
+    resultsPerPage: number,
   }
-  items: searchItemModel[];
+  items: SearchItemModel[],
 }
