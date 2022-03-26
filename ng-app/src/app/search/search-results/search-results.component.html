@@ -1,1 +1,5 @@
-
+<h2>search-results</h2>
+<!-- <button (click)="getData()">search</button> -->
+<div class="card" *ngFor = "let videoItem of videoItems">
+  <h3>{{videoItem.snippet.title}}</h3>
+</div>
