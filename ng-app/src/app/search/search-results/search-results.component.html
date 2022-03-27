@@ -1,5 +1,5 @@
-<h2>search-results</h2>
-<!-- <button (click)="getData()">search</button> -->
-<div class="card" *ngFor = "let videoItem of videoItems">
-  <h3>{{videoItem.snippet.title}}</h3>
-</div>
+<section class="cards-container">
+  <div class="card" *ngFor = "let videoItem of videoItems">
+    <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
+  </div>
+</section>

@@ -9,9 +9,10 @@ import { SearchItemComponent } from './search/search-item/search-item.component'
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchService } from './search/search.service';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SearchItemComponent, SearchResultsComponent],
+  declarations: [AppComponent, HeaderComponent, SearchItemComponent, SearchResultsComponent, FiltersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
