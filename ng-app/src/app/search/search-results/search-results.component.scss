@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .cards-container {
   max-width: 1200px;
   display: grid;
@@ -10,7 +12,7 @@
 .card {
   width: 264px;
   height: 327px;
-  background-color: var(--color-bg-cards);
+  background-color: $color-bg-cards;
   border-radius: 10px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
 }

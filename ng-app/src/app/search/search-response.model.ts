@@ -1,4 +1,4 @@
-import { SearchItemModel } from "./search-item.model";
+import { SearchItemModel } from './search-item.model';
 
 export interface SearchResponseModel {
   kind: string,

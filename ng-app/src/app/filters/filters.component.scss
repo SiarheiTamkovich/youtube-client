@@ -1,9 +1,11 @@
-.filters-container {
+@import '../../variables';
+
+.filters {
   max-width: 1440px;
   height: 50px;
   margin: 0 auto;
   padding: 15px;
-  background-color: var(--color-bg-cards);
+  background-color: $color-bg-cards;
 }
 
 .filters-items {
@@ -14,27 +16,28 @@
   align-items: center;
 }
 
-.filters-items > p {
+.filters-items__sort {
   margin: 0;
-  color: var(--color-font-grey);
+  color: $color-font-grey;
   font-size: 12px;
 }
 
-.filters-items > p > span {
-  color: var(--color-main);
+.filters-items__params {
+  margin: 0;
+  color: $color-main;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.filters-items > p > span:hover {
-  color: var(--color-font-grey);
+.filters-items__params:hover {
+  color: $color-font-grey;
 }
 
-.filters-items > div {
-  color: var(--color-main);
+.filters-items__word {
+  color: $color-main;
 }
 
-.filters-items > input {
+.filters-items__input {
   width: 149px;
   height: 13px;
   border: none;
@@ -42,7 +45,7 @@
   font-size: 12px;
 }
 
-.filters-items > input:focus{
-  border: 1px solid  var(--color-main);
+.filters-items__input:focus {
+  border: 1px solid  $color-main;
   filter: drop-shadow(2px 0px 2px #2F80ED);
 }
