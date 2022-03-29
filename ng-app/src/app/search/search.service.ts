@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchResponseModel } from './search-response.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,10 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<SearchResponseModel> {
-    return this.http.get<SearchResponseModel>(this.url);
+  public getData(): Observable<SearchResponseModel> {
+    // return this.http.get<SearchResponseModel>(this.url);
+    return this.http.get<SearchResponseModel>(this.url).pipe(
+      map((data: SearchResponseModel) => data),
+    );
   }
 }

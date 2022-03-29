@@ -1,17 +1,10 @@
+@import '_variables';
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
-}
-
-:root {
-  --color-bg:         #fff;
-  --color-bg-cards:   #E5E5E5;
-  --color-main:       #2F80ED;
-  --color-main-hover: #5EA2FF;
-  --color-font-main:  #4F4F4F;
-  --color-font-grey:  #828282;
 }
 
 html, body {
@@ -21,5 +14,5 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--color-bg);
+  background-color: $color-bg;
 }

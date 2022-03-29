@@ -1,37 +1,37 @@
 export interface SearchItemModel {
   kind: string,
   etag: string,
-  id:   string,
+  id: string,
   snippet:{
     publishedAt: string,
-    channelId:   string,
-    title:       string,
+    channelId: string,
+    title: string,
     description: string,
     thumbnails: {
       default: {
-        url:    string,
-        with:   number,
+        url: string,
+        with: number,
         height: number,
       }
       medium: {
-        url:    string,
-        with:   number,
+        url: string,
+        with: number,
         height: number,
       }
       standart: {
-        url:    string,
-        with:   number,
+        url: string,
+        with: number,
         height: number,
       }
       maxres: {
-        url:    string,
-        with:   number,
+        url: string,
+        with: number,
         height: number,
       }
     }
     channelTitle: string,
-    tags:         string[],
-    categoryId:   string,
+    tags: string[],
+    categoryId: string,
     liveBroadcastContent: string,
     localized: {
       title: string,
@@ -40,10 +40,10 @@ export interface SearchItemModel {
     defaultAudioLanguage: string,
   }
   statistics: {
-    viewCount:     string,
-    likeCount:     string,
-    dislikeCount:  string,
+    viewCount: string,
+    likeCount: string,
+    dislikeCount: string,
     favoriteCount: string,
-    commentCount:  string,
+    commentCount: string,
   }
 }

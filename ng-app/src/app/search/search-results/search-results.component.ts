@@ -10,25 +10,16 @@ import { SearchService } from '../search.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  public videoResponse: SearchResponseModel = {
-    kind: '',
-    etag: '',
-    pageInfo: {
-      totalResults: 0,
-      resultsPerPage: 0
-    },
-    items: []
-  };
+  public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
 
   constructor(private searchService: SearchService) {}
 
   ngOnInit() {
-    this.searchService.getData().subscribe((data) => {
+    this.searchService.getData().subscribe((data: SearchResponseModel) => {
       this.videoResponse = data;
       this.videoItems = data.items;
       console.log(this.videoItems[0].snippet)
     });
   }
-
 }
