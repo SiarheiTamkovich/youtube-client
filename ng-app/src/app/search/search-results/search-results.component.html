@@ -1,5 +1,22 @@
-<section class="cards-container">
-  <div class="card" *ngFor = "let videoItem of videoItems">
-    <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
+<div class="card" *ngFor = "let videoItem of videoItems">
+  <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
+  <div class="card-properties">
+    <p>
+      <img src="../../../assets/img/icon/viewed.svg" alt="dislike"> 
+      {{videoItem.statistics.viewCount}}
+    </p>
+    <p>
+      <img src="../../../assets/img/icon/liked.svg" alt="dislike">
+      {{videoItem.statistics.likeCount}}
+    </p>
+    <p>
+      <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
+      {{videoItem.statistics.dislikeCount}}
+    </p>
+    <p>
+      <img src="../../../assets/img/icon/comments.svg" alt="dislike">
+      {{videoItem.statistics.commentCount}}
+    </p>
   </div>
-</section>
+</div>
+

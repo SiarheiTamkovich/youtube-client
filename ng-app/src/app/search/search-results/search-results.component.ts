@@ -19,7 +19,7 @@ export class SearchResultsComponent implements OnInit {
     this.searchService.getData().subscribe((data: SearchResponseModel) => {
       this.videoResponse = data;
       this.videoItems = data.items;
-      console.log(this.videoItems[0].snippet)
+      console.log(this.videoItems[0])
     });
   }
 }
