@@ -1,6 +1,6 @@
 <div class="card" *ngFor = "let videoItem of videoItems">
   <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
-  <div class="card-properties">
+  <div class="card-statistic">
     <p>
       <img src="../../../assets/img/icon/viewed.svg" alt="dislike"> 
       {{videoItem.statistics.viewCount}}
@@ -18,5 +18,7 @@
       {{videoItem.statistics.commentCount}}
     </p>
   </div>
+  <h2>{{videoItem.snippet.title}}</h2>
+  <button>more...</button>
 </div>
 
