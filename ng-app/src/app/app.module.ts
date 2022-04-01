@@ -13,14 +13,15 @@ import { FiltersComponent } from './filters/filters.component';
 
 import { SearchService } from './search/search.service';
 
+import { GetColorFromDateDirective } from './search/directives/get-color-from-date.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    HeaderComponent, 
-    SearchItemComponent, 
-    SearchResultsComponent, 
-    FiltersComponent],
+    AppComponent,
+    HeaderComponent,
+    SearchItemComponent,
+    SearchResultsComponent,
+    FiltersComponent, GetColorFromDateDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,

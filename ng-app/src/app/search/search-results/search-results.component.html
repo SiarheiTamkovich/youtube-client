@@ -1,4 +1,11 @@
-<div class="card" *ngFor = "let videoItem of videoItems">
+<div
+  appGetColorFromDate
+  *ngFor = "let videoItem of videoItems"
+  class="card"
+  id="{{videoItem.id}}"
+  [attr.data-date-publish]="videoItem.snippet.publishedAt"
+  >
+
   <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
   <div class="card-statistic">
     <p>
