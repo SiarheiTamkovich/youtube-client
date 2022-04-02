@@ -5,7 +5,7 @@
   id="{{videoItem.id}}"
   [attr.data-date-publish]="videoItem.snippet.publishedAt"
   >
-
+  <h2>{{videoItem.snippet.publishedAt | date:'dd.MM.yyyy'}}</h2>
   <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
   <div class="card-statistic">
     <p>

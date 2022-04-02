@@ -14,7 +14,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
-  public sortByDate: boolean = true;
+  public sort = {
+    byDate: 'no',
+    byViews: 'decr',
+    counter: 0
+  }
 
   private _dataSubscription: Subscription;
 
@@ -24,7 +28,36 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this._dataSubscription = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
       this.videoResponse = data;
       this.videoItems = data.items;
-      console.log(this.videoItems[0].snippet.publishedAt)
+
+      if (this.sort.byDate === 'incr') {
+        this.videoItems.sort(
+          (a, b) => new Date(b.snippet.publishedAt).getTime() -
+          new Date(a.snippet.publishedAt).getTime()
+        );
+      }
+
+      if (this.sort.byDate === 'decr') {
+        this.videoItems.sort(
+          (a, b) => new Date(a.snippet.publishedAt).getTime() -
+          new Date(b.snippet.publishedAt).getTime()
+        );
+      }
+
+      if (this.sort.byViews === 'incr') {
+        this.videoItems.sort(
+          (a, b) => Number(a.statistics.viewCount) -
+          Number(b.statistics.viewCount)
+        );
+      }
+
+      if (this.sort.byViews === 'decr') {
+        this.videoItems.sort(
+          (a, b) => Number(b.statistics.viewCount) -
+          Number(a.statistics.viewCount)
+        );
+      }
+
+      console.log(this.videoItems)
     });
   }
 
