@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { SearchItemModel } from '../search-item.model';
 import { SearchResponseModel } from '../search-response.model';
 import { SearchService } from '../search.service';
 import { Subscription } from 'rxjs';
+import { SortModel } from '../sort.model';
 
 
 @Component({
@@ -14,50 +15,50 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
-  public sort = {
-    byDate: 'no',
-    byViews: 'decr',
-    counter: 0
-  }
+
+  @Input() sort: SortModel;
 
   private _dataSubscription: Subscription;
 
   constructor(private searchService: SearchService) {}
 
+  public sortItems() {
+    if (this.sort.byDate === 'incr') {
+      this.videoItems.sort(
+        (a, b) => new Date(b.snippet.publishedAt).getTime() -
+        new Date(a.snippet.publishedAt).getTime()
+      );
+    }
+
+    if (this.sort.byDate === 'decr') {
+      this.videoItems.sort(
+        (a, b) => new Date(a.snippet.publishedAt).getTime() -
+        new Date(b.snippet.publishedAt).getTime()
+      );
+    }
+
+    if (this.sort.byViews === 'incr') {
+      this.videoItems.sort(
+        (a, b) => Number(a.statistics.viewCount) -
+        Number(b.statistics.viewCount)
+      );
+    }
+
+    if (this.sort.byViews === 'decr') {
+      this.videoItems.sort(
+        (a, b) => Number(b.statistics.viewCount) -
+        Number(a.statistics.viewCount)
+      );
+    }
+  }
+
   ngOnInit(): void {
     this._dataSubscription = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
       this.videoResponse = data;
       this.videoItems = data.items;
-
-      if (this.sort.byDate === 'incr') {
-        this.videoItems.sort(
-          (a, b) => new Date(b.snippet.publishedAt).getTime() -
-          new Date(a.snippet.publishedAt).getTime()
-        );
-      }
-
-      if (this.sort.byDate === 'decr') {
-        this.videoItems.sort(
-          (a, b) => new Date(a.snippet.publishedAt).getTime() -
-          new Date(b.snippet.publishedAt).getTime()
-        );
-      }
-
-      if (this.sort.byViews === 'incr') {
-        this.videoItems.sort(
-          (a, b) => Number(a.statistics.viewCount) -
-          Number(b.statistics.viewCount)
-        );
-      }
-
-      if (this.sort.byViews === 'decr') {
-        this.videoItems.sort(
-          (a, b) => Number(b.statistics.viewCount) -
-          Number(a.statistics.viewCount)
-        );
-      }
-
-      console.log(this.videoItems)
+      this.sortItems();
+      console.log(this.sort);
+      console.log(this.videoItems);
     });
   }
 

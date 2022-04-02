@@ -4,6 +4,14 @@
 >
 </app-header>
 
-<app-filters *ngIf="!isFiltersON"></app-filters>
+<app-filters
+  *ngIf="!isFiltersON"
+  (clickSortByDate)="sendEventClickSortByData()"
+>
+</app-filters>
 
-<app-search-results *ngIf="!isSearchON"></app-search-results>
+<app-search-results
+  [sort]="sort"
+  *ngIf="!isSearchON"
+>
+</app-search-results>
