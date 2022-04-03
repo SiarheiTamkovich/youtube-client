@@ -8,6 +8,7 @@
   *ngIf="!isFiltersON"
   (clickSortByDate)="sendEventClickSortByData()"
   (clickSortByViews)="sendEventClickSortByViews()"
+  (inputFilterByString)="sendInputFilterByString($event)"
 >
 </app-filters>
 

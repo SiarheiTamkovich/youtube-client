@@ -9,6 +9,7 @@ export class FiltersComponent implements OnInit {
 
   @Output() public clickSortByDate: EventEmitter<boolean> = new EventEmitter;
   @Output() public clickSortByViews: EventEmitter<boolean> = new EventEmitter;
+  @Output() public inputFilterByString: EventEmitter<string> = new EventEmitter;
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class FiltersComponent implements OnInit {
 
   public clickSortByViewsEmit(): void {
     this.clickSortByViews.emit();
+  }
+
+  public inputFilterByStringEmit(value: string): void {
+    this.inputFilterByString.emit(value);
   }
 
   ngOnInit(): void {}

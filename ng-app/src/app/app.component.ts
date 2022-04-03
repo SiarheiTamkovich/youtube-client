@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
     byViews: 'no',
     counterDate: 0,
     counterViews: 0,
+    inputFilterValue: '',
+
   }
 
   ngOnInit(): void {}
@@ -51,6 +53,10 @@ export class AppComponent implements OnInit {
     if (this.sort.counterViews === 1) this.sort.byViews = 'incr';
     if (this.sort.counterViews === 2) {this.sort.byViews = 'decr'; this.sort.counterViews = 0}
     this.child.ngOnInit()
+  }
+
+  public sendInputFilterByString(value: string) {
+    this.sort.inputFilterValue = value;
   }
 }
 

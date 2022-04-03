@@ -14,6 +14,7 @@ import { FiltersComponent } from './filters/filters.component';
 import { SearchService } from './search/search.service';
 
 import { GetColorFromDateDirective } from './search/directives/get-color-from-date.directive';
+import { TextFilterPipe } from './search/text-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { GetColorFromDateDirective } from './search/directives/get-color-from-da
     HeaderComponent,
     SearchItemComponent,
     SearchResultsComponent,
-    FiltersComponent, GetColorFromDateDirective],
+    FiltersComponent, GetColorFromDateDirective, TextFilterPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

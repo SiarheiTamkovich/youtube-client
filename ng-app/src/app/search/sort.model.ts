@@ -3,4 +3,5 @@ export interface SortModel {
   byViews: string,
   counterDate: number,
   counterViews: number,
+  inputFilterValue: string,
 }
