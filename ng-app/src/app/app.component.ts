@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
   public sort: SortModel = {
     byDate: 'no',
     byViews: 'no',
-    counter: 0
+    counterDate: 0,
+    counterViews: 0,
   }
 
   ngOnInit(): void {}
@@ -37,10 +38,18 @@ export class AppComponent implements OnInit {
   }
 
   public sendEventClickSortByData() {
-    this.sort.counter++;
-    if (this.sort.counter === 1) this.sort.byDate = 'incr';
-    if (this.sort.counter === 2) this.sort.byDate = 'decr';
-    if (this.sort.counter === 3) {this.sort.byDate = 'no'; this.sort.counter = 0}
+    this.sort.byViews = 'no;'
+    this.sort.counterDate++;
+    if (this.sort.counterDate === 1) this.sort.byDate = 'incr';
+    if (this.sort.counterDate === 2) {this.sort.byDate = 'decr'; this.sort.counterDate = 0}
+    this.child.ngOnInit()
+  }
+
+  public sendEventClickSortByViews() {
+    this.sort.byDate = 'no';
+    this.sort.counterViews++;
+    if (this.sort.counterViews === 1) this.sort.byViews = 'incr';
+    if (this.sort.counterViews === 2) {this.sort.byViews = 'decr'; this.sort.counterViews = 0}
     this.child.ngOnInit()
   }
 }

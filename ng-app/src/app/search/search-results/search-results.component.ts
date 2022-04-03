@@ -57,7 +57,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       this.videoResponse = data;
       this.videoItems = data.items;
       this.sortItems();
-      console.log(this.sort);
+//      console.log(this.sort);
       console.log(this.videoItems);
     });
   }

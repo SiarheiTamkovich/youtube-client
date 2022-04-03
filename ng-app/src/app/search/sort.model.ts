@@ -1,5 +1,6 @@
 export interface SortModel {
   byDate: string,
   byViews: string,
-  counter: number
+  counterDate: number,
+  counterViews: number,
 }

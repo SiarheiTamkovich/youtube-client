@@ -8,11 +8,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FiltersComponent implements OnInit {
 
   @Output() public clickSortByDate: EventEmitter<boolean> = new EventEmitter;
+  @Output() public clickSortByViews: EventEmitter<boolean> = new EventEmitter;
 
   constructor() { }
 
   public clickSortByDateEmit(): void {
     this.clickSortByDate.emit();
+  }
+
+  public clickSortByViewsEmit(): void {
+    this.clickSortByViews.emit();
   }
 
   ngOnInit(): void {}
