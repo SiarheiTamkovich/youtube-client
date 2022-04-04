@@ -14,13 +14,15 @@ import { SearchService } from './core/services/search.service';
 
 import { GetColorFromDateDirective } from './youtube/directives/get-color-from-date.directive';
 import { TextFilterPipe } from './youtube/pipes/text-filter.pipe';
+import { Page404Component } from './core/pages/page404/page404.component';
+import { HomeComponent } from './youtube/pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchResultsComponent,
-    FiltersComponent, GetColorFromDateDirective, TextFilterPipe],
+    FiltersComponent, GetColorFromDateDirective, TextFilterPipe, Page404Component, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

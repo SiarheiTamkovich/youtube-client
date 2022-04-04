@@ -16,3 +16,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: $color-bg;
 }
+
+app-header {
+  display: block;
+  max-width: 1440px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: $color-bg-cards;
+}
