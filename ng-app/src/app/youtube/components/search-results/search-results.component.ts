@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { SearchItemModel } from '../search-item.model';
-import { SearchResponseModel } from '../search-response.model';
-import { SearchService } from '../search.service';
+import { SearchItemModel } from '../../models/search-item.model';
+import { SearchResponseModel } from '../../models/search-response.model';
+import { SearchService } from '../../../core/services/search.service';
 import { Subscription } from 'rxjs';
-import { SortModel } from '../sort.model';
+import { SortModel } from '../../models/sort.model';
 
 
 @Component({

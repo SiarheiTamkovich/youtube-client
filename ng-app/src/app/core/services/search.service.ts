@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SearchResponseModel } from './search-response.model';
+import { SearchResponseModel } from '../../youtube/models/search-response.model';
 import { map, Observable } from 'rxjs';
 
 @Injectable({

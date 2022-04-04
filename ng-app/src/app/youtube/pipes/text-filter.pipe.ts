@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchItemModel } from './search-item.model';
-import { SortModel } from './sort.model';
+import { SearchItemModel } from '../models/search-item.model';
+import { SortModel } from '../models/sort.model';
 
 @Pipe({
   name: 'textFilter',

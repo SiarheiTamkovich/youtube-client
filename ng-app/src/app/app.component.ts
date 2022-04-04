@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { SortModel } from './search/sort.model';
+import { SearchResultsComponent } from './youtube/components/search-results/search-results.component';
+import { SortModel } from './youtube/models/sort.model';
 
 @Component({
   selector: 'app-root',

@@ -6,21 +6,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HeaderComponent } from './header/header.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { FiltersComponent } from './filters/filters.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { SearchResultsComponent } from './youtube/components/search-results/search-results.component';
+import { FiltersComponent } from './youtube/components/filters/filters.component';
 
-import { SearchService } from './search/search.service';
+import { SearchService } from './core/services/search.service';
 
-import { GetColorFromDateDirective } from './search/directives/get-color-from-date.directive';
-import { TextFilterPipe } from './search/text-filter.pipe';
+import { GetColorFromDateDirective } from './youtube/directives/get-color-from-date.directive';
+import { TextFilterPipe } from './youtube/pipes/text-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchItemComponent,
     SearchResultsComponent,
     FiltersComponent, GetColorFromDateDirective, TextFilterPipe],
   imports: [
