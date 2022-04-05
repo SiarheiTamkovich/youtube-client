@@ -1,0 +1,15 @@
+@import '../../../../variables';
+
+.page404 {
+  max-width: 380px;
+  height: 100px;
+  display: flex;
+  margin: 20% auto;
+
+  a {
+    font-size: 24px;
+    color: $color-font-grey;
+    padding: 20px;
+    line-height: 25px;
+  }
+}
