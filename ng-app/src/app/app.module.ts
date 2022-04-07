@@ -11,18 +11,24 @@ import { SearchResultsComponent } from './youtube/components/search-results/sear
 import { FiltersComponent } from './youtube/components/filters/filters.component';
 
 import { SearchService } from './core/services/search.service';
+import { YoutubeService } from './youtube/services/youtube.service';
 
 import { GetColorFromDateDirective } from './youtube/directives/get-color-from-date.directive';
 import { TextFilterPipe } from './youtube/pipes/text-filter.pipe';
 import { Page404Component } from './core/pages/page404/page404.component';
-import { HomeComponent } from './youtube/pages/home/home.component';
+import { HomeComponent } from './core/pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchResultsComponent,
-    FiltersComponent, GetColorFromDateDirective, TextFilterPipe, Page404Component, HomeComponent],
+    FiltersComponent,
+    GetColorFromDateDirective,
+    TextFilterPipe,
+    Page404Component,
+    HomeComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +36,7 @@ import { HomeComponent } from './youtube/pages/home/home.component';
     HttpClientModule,
     MatIconModule,
   ],
-  providers: [SearchService],
+  providers: [SearchService, YoutubeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

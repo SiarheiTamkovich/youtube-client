@@ -1,5 +1,15 @@
 @import '../../../../variables';
 
+.cards-component {
+  display: block;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: 29px;
+  margin: 0 auto;
+  padding: 31px;
+}
+
 .card {
   width: 264px;
   height: 327px;

@@ -1,31 +1,34 @@
-<div
-  appGetColorFromDate
-  *ngFor = "let videoItem of videoItems | textFilter:sort"
-  class="card"
-  id="{{videoItem.id}}"
-  [attr.data-date-publish]="videoItem.snippet.publishedAt"
-  >
-  <!-- <h2>{{videoItem.snippet.publishedAt | date:'dd.MM.yyyy'}}</h2> -->
-  <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
-  <div class="card-statistic">
-    <p>
-      <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
-      {{videoItem.statistics.viewCount}}
-    </p>
-    <p>
-      <img src="../../../assets/img/icon/liked.svg" alt="dislike">
-      {{videoItem.statistics.likeCount}}
-    </p>
-    <p>
-      <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-      {{videoItem.statistics.dislikeCount}}
-    </p>
-    <p>
-      <img src="../../../assets/img/icon/comments.svg" alt="dislike">
-      {{videoItem.statistics.commentCount}}
-    </p>
+<div class="cards-component">
+  <div
+    appGetColorFromDate
+    *ngFor = "let videoItem of videoItems | textFilter:sortNew"
+    class="card"
+    id="{{videoItem.id}}"
+    [attr.data-date-publish]="videoItem.snippet.publishedAt"
+    >
+    <!-- <h2>{{videoItem.snippet.publishedAt | date:'dd.MM.yyyy'}}</h2> -->
+    <h2>{{srv.sortNew.byDate}}</h2>
+    <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
+    <div class="card-statistic">
+      <p>
+        <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
+        {{videoItem.statistics.viewCount}}
+      </p>
+      <p>
+        <img src="../../../assets/img/icon/liked.svg" alt="dislike">
+        {{videoItem.statistics.likeCount}}
+      </p>
+      <p>
+        <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
+        {{videoItem.statistics.dislikeCount}}
+      </p>
+      <p>
+        <img src="../../../assets/img/icon/comments.svg" alt="dislike">
+        {{videoItem.statistics.commentCount}}
+      </p>
+    </div>
+    <h2>{{videoItem.snippet.title}}</h2>
+    <button>more...</button>
   </div>
-  <h2>{{videoItem.snippet.title}}</h2>
-  <button>more...</button>
 </div>
 
