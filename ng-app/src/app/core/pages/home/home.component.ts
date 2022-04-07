@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SortModel } from '../../../youtube/models/sort.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
-//import 'rxjs/add/operator/filter';
-//import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +26,6 @@ export class HomeComponent implements OnInit {
 
   public getSearchParams(params: string): void {
     if (params != '') {
-      this.isSearchON = true;
       this.router.navigate(['home/search'], {queryParams: {order: params}});
      // console.log(params);
     }

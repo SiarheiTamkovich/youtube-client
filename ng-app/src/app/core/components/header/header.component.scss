@@ -62,3 +62,21 @@
   border-radius: 4px;
 }
 
+.header-login {
+  width: 100px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 5px;
+  }
+  p {
+    color: $color-font-grey;
+  }
+}
+
