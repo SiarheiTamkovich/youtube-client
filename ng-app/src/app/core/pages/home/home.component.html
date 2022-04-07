@@ -1,4 +1,3 @@
-<h1>Home component</h1>
 <app-header
   (btnClick)="displayFilters()"
   (searchParams)="getSearchParams($event)"
@@ -10,10 +9,5 @@
   (clickSortByViews)="sendEventClickSortByViews()"
   (inputFilterByString)="sendInputFilterByString($event)"
 ></app-filters>
-<!--
-<app-search-results
-  [sort]="sort"
-  *ngIf="isSearchON"
-></app-search-results> -->
 
 <router-outlet></router-outlet>

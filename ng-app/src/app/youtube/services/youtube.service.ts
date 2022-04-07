@@ -7,7 +7,7 @@ import { SortModel } from '../models/sort.model';
 })
 export class YoutubeService {
 
-  public sortNew: SortModel = {
+  public sort: SortModel = {
     byDate: 'no',
     byViews: 'no',
     counterDate: 0,
@@ -18,12 +18,12 @@ export class YoutubeService {
   constructor() { }
 
   public getDataSort$(): Observable <SortModel>{
-    console.log(this.sortNew)
-    return of(this.sortNew);
+//    console.log(this.sortNew)
+    return of(this.sort);
   }
 
-  public setDataSort$(sortNew: SortModel): void {
-    console.log(this.sortNew)
-    this.sortNew = sortNew;
+  public setDataSort$(sort: SortModel): void {
+  //  console.log(this.sortNew)
+    this.sort = sort;
   }
 }

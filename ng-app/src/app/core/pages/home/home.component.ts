@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SearchResultsComponent } from '../../../youtube/components/search-results/search-results.component';
+import { Component, OnInit } from '@angular/core';
 import { SortModel } from '../../../youtube/models/sort.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
+//import 'rxjs/add/operator/filter';
+//import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 @Component({
   selector: 'app-home',
@@ -11,25 +12,16 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private srv: YoutubeService ) {}
-
-  @ViewChild(SearchResultsComponent) child: SearchResultsComponent;
+  constructor(
+    private router: Router,
+    private srv: YoutubeService,
+    ) {}
 
   public isFiltersON: boolean = false;
   public isSearchON: boolean = false;
   public inputValue: string;
 
-  public sort: SortModel = {
-    byDate: 'no',
-    byViews: 'no',
-    counterDate: 0,
-    counterViews: 0,
-    inputFilterValue: '',
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   public displayFilters(): void {
     this.isFiltersON = !this.isFiltersON;
@@ -44,26 +36,23 @@ export class HomeComponent implements OnInit {
   }
 
   public sendEventClickSortByData() {
-    this.srv.sortNew.byDate = 'no';
-    this.srv.sortNew.counterDate++;
-    if (this.srv.sortNew.counterDate === 1) this.srv.sortNew.byDate = 'incr';
-    if (this.srv.sortNew.counterDate === 2) {this.srv.sortNew.byDate = 'decr'; this.srv.sortNew.counterDate = 0};
-   // this.child.ngOnInit()
-    this.srv.setDataSort$(this.srv.sortNew);
-
-
+    this.srv.sort.byDate = 'no';
+    this.srv.sort.counterDate++;
+    if (this.srv.sort.counterDate === 1) this.srv.sort.byDate = 'incr';
+    if (this.srv.sort.counterDate === 2) {this.srv.sort.byDate = 'decr'; this.srv.sort.counterDate = 0};
+    this.srv.setDataSort$(this.srv.sort);
   }
 
   public sendEventClickSortByViews() {
-    this.sort.byDate = 'no';
-    this.sort.counterViews++;
-    if (this.sort.counterViews === 1) this.sort.byViews = 'incr';
-    if (this.sort.counterViews === 2) {this.sort.byViews = 'decr'; this.sort.counterViews = 0}
-    this.child.ngOnInit()
+    this.srv.sort.byDate = 'no';
+    this.srv.sort.counterViews++;
+    if (this.srv.sort.counterViews === 1) this.srv.sort.byViews = 'incr';
+    if (this.srv.sort.counterViews === 2) {this.srv.sort.byViews = 'decr'; this.srv.sort.counterViews = 0};
+    this.srv.setDataSort$(this.srv.sort);
   }
 
   public sendInputFilterByString(value: string) {
-    this.sort.inputFilterValue = value;
+    this.srv.sort.inputFilterValue = value;
   }
 
 }
