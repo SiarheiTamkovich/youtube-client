@@ -32,7 +32,7 @@
 
     p {
       font-size: 11px;
-
+      color: $color-main;
       img {
         width: 18px;
         height: 12px;
@@ -59,7 +59,7 @@
     margin: 0 0 0 72px;
     background-color: $color-main;
     cursor: pointer;
-    filter: drop-shadow(2px 0px 2px #2F80ED);
+    filter: drop-shadow(2px 0px 2px $color-main);
     color: #fff;
     font-size: 12px;
     letter-spacing: 1px;
