@@ -17,6 +17,7 @@ import { GetColorFromDateDirective } from './youtube/directives/get-color-from-d
 import { TextFilterPipe } from './youtube/pipes/text-filter.pipe';
 import { Page404Component } from './core/pages/page404/page404.component';
 import { HomeComponent } from './core/pages/home/home.component';
+import { ProgressComponent } from './shared/components/progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './core/pages/home/home.component';
     GetColorFromDateDirective,
     TextFilterPipe,
     Page404Component,
-    HomeComponent
+    HomeComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,
