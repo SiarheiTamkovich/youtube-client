@@ -4,10 +4,15 @@ import { Page404Component } from './core/pages/page404/page404.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { 
-    path: 'home', 
+  {
+    path: 'home',
     loadChildren: () => import('./youtube/youtube-routing.module')
       .then(m => m.YoutubeRoutingModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth-routing.module')
+      .then(m => m.AuthRoutingModule)
   },
   { path: '**', component: Page404Component },
 ];
