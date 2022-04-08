@@ -4,10 +4,15 @@ import { HomeComponent } from '../core/pages/home/home.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
-  { path: '', 
+  { path: '',
     component: HomeComponent,
     children: [
       { path: 'search', component: SearchResultsComponent},
+      {
+        path: 'auth',
+        loadChildren: () => import('../auth/auth-routing.module')
+          .then(m => m.AuthRoutingModule)
+      },
     ]
   },
 ];

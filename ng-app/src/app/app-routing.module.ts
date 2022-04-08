@@ -9,11 +9,6 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube-routing.module')
       .then(m => m.YoutubeRoutingModule)
   },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth-routing.module')
-      .then(m => m.AuthRoutingModule)
-  },
   { path: '**', component: Page404Component },
 ];
 
