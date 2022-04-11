@@ -21,6 +21,8 @@ import { ProgressComponent } from './shared/components/progress/progress.compone
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { ItemPageComponent } from './youtube/pages/item-page/item-page.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { ItemPageComponent } from './youtube/pages/item-page/item-page.component
     Page404Component,
     HomeComponent,
     ProgressComponent,
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,7 @@ import { ItemPageComponent } from './youtube/pages/item-page/item-page.component
     AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatIconModule,
+    MatIconModule, MatProgressSpinnerModule,
   ],
   providers: [
     SearchService,
