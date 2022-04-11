@@ -1,6 +1,8 @@
 <ng-container *ngIf="!spinner">
   <div class="container">
-    <button >me...</button>
+    <button (click)="goBack()">
+      <img src="../../../../assets/img/icon/left_arrow.svg" alt="left_arrow">
+    </button>
     <div class="poster">
       <img src="{{video.snippet.thumbnails.standard.url}}" alt="screen-image">
     </div>
@@ -10,6 +12,14 @@
       id="{{video.id}}"
       [attr.data-date-publish]="video.snippet.publishedAt"
       >
+      <div class="card-header">
+        <h1>{{video.snippet.title}}</h1>
+        <p>{{video.snippet.publishedAt | date: 'EEEE, MMMM d, y'}}</p>
+      </div>
+      <div class="card-description">
+        <h3>Description:</h3>
+        <p>{{video.snippet.localized.description}}</p>
+      </div>
       <div class="card-statistic">
         <p>
           <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
@@ -28,7 +38,6 @@
           {{video.statistics.commentCount}}
         </p>
       </div>
-      <h2>{{video.snippet.title}}</h2>
     </div>
   </div>
 </ng-container>

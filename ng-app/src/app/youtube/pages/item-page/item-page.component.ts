@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item-page',
@@ -17,7 +18,11 @@ export class ItemPageComponent implements OnInit {
   private _dataSubscriptionFilm: Subscription;
   public spinner: boolean = true;
 
-  constructor(public route: ActivatedRoute, private searchService: SearchService,) { }
+  constructor(
+    public route: ActivatedRoute,
+    private searchService: SearchService,
+    private location: Location,
+  ) { }
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.params['id'];
@@ -27,11 +32,15 @@ export class ItemPageComponent implements OnInit {
         if (item.id === this.itemId) this.video = item;
       });
       this.spinner = false;
-//      console.log(this.video)
+      console.log(this.video)
     });
   }
 
   ngOnDestroy(): void {
     this._dataSubscriptionFilm.unsubscribe();
+  }
+
+  public goBack(): void {
+    this.location.back();
   }
 }
