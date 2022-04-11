@@ -18,7 +18,7 @@ export interface SearchItemModel {
         with: number,
         height: number,
       }
-      standart: {
+      standard: {
         url: string,
         with: number,
         height: number,

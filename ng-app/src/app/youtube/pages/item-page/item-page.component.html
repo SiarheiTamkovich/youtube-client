@@ -1,0 +1,38 @@
+<ng-container *ngIf="!spinner">
+  <div class="container">
+    <button >me...</button>
+    <div class="poster">
+      <img src="{{video.snippet.thumbnails.standard.url}}" alt="screen-image">
+    </div>
+    <div
+      appGetColorFromDate
+      class="video-card"
+      id="{{video.id}}"
+      [attr.data-date-publish]="video.snippet.publishedAt"
+      >
+      <div class="card-statistic">
+        <p>
+          <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
+          {{video.statistics.viewCount}}
+        </p>
+        <p>
+          <img src="../../../assets/img/icon/liked.svg" alt="dislike">
+          {{video.statistics.likeCount}}
+        </p>
+        <p>
+          <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
+          {{video.statistics.dislikeCount}}
+        </p>
+        <p>
+          <img src="../../../assets/img/icon/comments.svg" alt="dislike">
+          {{video.statistics.commentCount}}
+        </p>
+      </div>
+      <h2>{{video.snippet.title}}</h2>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="spinner">
+  <h1>Loading...</h1>
+</ng-container>

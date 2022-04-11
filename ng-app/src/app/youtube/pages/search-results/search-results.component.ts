@@ -5,6 +5,7 @@ import { SearchService } from '../../../core/services/search.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   private _dataSubscriptionFilm: Subscription;
   private _dataSubscriptionSort: Subscription;
 
-  constructor(private searchService: SearchService, public srv: YoutubeService) {}
+  constructor(
+    private searchService: SearchService,
+    public srv: YoutubeService,
+    private router: Router,
+  ) {}
 
   public sortItems() {
 
@@ -65,7 +70,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       this.sortNew = dataSort;
     });
   }
-  
+
   ngDoCheck(){
     this.sortItems();
 //    console.log(this.sortNew);
@@ -74,6 +79,10 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._dataSubscriptionFilm.unsubscribe();
     this._dataSubscriptionSort.unsubscribe();
+  }
+
+  public viewItem(id: string): void {
+    this.router.navigate([`home/video/${id}`])
   }
 
 }

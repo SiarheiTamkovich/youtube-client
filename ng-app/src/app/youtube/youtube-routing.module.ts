@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { HomeComponent } from '../core/pages/home/home.component';
+import { ItemPageComponent } from './pages/item-page/item-page.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('../auth/auth-routing.module')
           .then(m => m.AuthRoutingModule),
+      },
+      {
+        path: 'video/:id',
+        component: ItemPageComponent,
+        canActivate: [AuthGuard],
       },
     ]
   },

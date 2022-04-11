@@ -19,20 +19,24 @@ import { Page404Component } from './core/pages/page404/page404.component';
 import { HomeComponent } from './core/pages/home/home.component';
 import { ProgressComponent } from './shared/components/progress/progress.component';
 import { AuthModule } from './auth/auth.module';
+import { CommonModule } from '@angular/common';
+import { ItemPageComponent } from './youtube/pages/item-page/item-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchResultsComponent,
+    ItemPageComponent,
     FiltersComponent,
     GetColorFromDateDirective,
     TextFilterPipe,
     Page404Component,
     HomeComponent,
-    ProgressComponent
+    ProgressComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
