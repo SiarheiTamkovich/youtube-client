@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './core/components/header/header.component';
-import { SearchResultsComponent } from './youtube/components/search-results/search-results.component';
+import { SearchResultsComponent } from './youtube/pages/search-results/search-results.component';
 import { FiltersComponent } from './youtube/components/filters/filters.component';
 
 import { SearchService } from './core/services/search.service';
@@ -18,6 +18,7 @@ import { TextFilterPipe } from './youtube/pipes/text-filter.pipe';
 import { Page404Component } from './core/pages/page404/page404.component';
 import { HomeComponent } from './core/pages/home/home.component';
 import { ProgressComponent } from './shared/components/progress/progress.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,15 @@ import { ProgressComponent } from './shared/components/progress/progress.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatIconModule,
   ],
-  providers: [SearchService, YoutubeService],
+  providers: [
+    SearchService,
+    YoutubeService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

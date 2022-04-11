@@ -2,14 +2,14 @@
   <h2>Login</h2>
   <form>
     <label>login (admin123)</label>
-    <input type="text" >
+    <input id="username" type="text" [formControl]="username"/>
   </form>
   <form>
     <label>password (admin123)</label>
-    <input type="password" >
+    <input type="password" [formControl]="password" />
   </form>
   <div>
     <a href="home/auth/register">Registration</a>
-    <button class="btn-login">Login</button>
+    <button class="btn-login" (click)="login()">Login</button>
   </div>
 </div>
