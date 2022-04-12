@@ -24,20 +24,22 @@
   }
 
   .card-statistic {
-    width: 220px;
+    width: 202px;
     height: 13px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
 
-    p {
+    img {
+      width: 18px;
+      height: 12px;
+      margin: 0;
+    }
+
+    span {
       font-size: 11px;
-      color: $color-main;
-      img {
-        width: 18px;
-        height: 12px;
-        margin: 0;
-      }
+      color: #000;
     }
   }
 

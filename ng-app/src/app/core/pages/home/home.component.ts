@@ -25,21 +25,23 @@ export class HomeComponent implements OnInit {
   }
 
   public getSearchParams(params: string): void {
-    if (params != '') {
-      this.router.navigate(['home/search'], {queryParams: {order: params}});
-     // console.log(params);
-    }
+    if (params === '') return;
+    this.router.navigate(['home/search'], {queryParams: {order: params}});
+    // console.log(params);
   }
 
-  public sendEventClickSortByData() {
+  public sendEventClickSortByData(): void {
     this.srv.sort.byDate = 'no';
     this.srv.sort.counterDate++;
     if (this.srv.sort.counterDate === 1) this.srv.sort.byDate = 'incr';
-    if (this.srv.sort.counterDate === 2) {this.srv.sort.byDate = 'decr'; this.srv.sort.counterDate = 0};
+    if (this.srv.sort.counterDate === 2) {
+      this.srv.sort.byDate = 'decr';
+      this.srv.sort.counterDate = 0
+    };
     this.srv.setDataSort$(this.srv.sort);
   }
 
-  public sendEventClickSortByViews() {
+  public sendEventClickSortByViews(): void {
     this.srv.sort.byDate = 'no';
     this.srv.sort.counterViews++;
     if (this.srv.sort.counterViews === 1) this.srv.sort.byViews = 'incr';
@@ -47,7 +49,7 @@ export class HomeComponent implements OnInit {
     this.srv.setDataSort$(this.srv.sort);
   }
 
-  public sendInputFilterByString(value: string) {
+  public sendInputFilterByString(value: string): void {
     this.srv.sort.inputFilterValue = value;
   }
 

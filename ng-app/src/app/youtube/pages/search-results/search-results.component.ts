@@ -64,7 +64,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       this.videoResponse = data;
       this.videoItems = data.items;
       this.sortItems();
-      console.log(this.videoItems);
+//      console.log(this.videoItems);
     });
     this._dataSubscriptionSort = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
       this.sortNew = dataSort;

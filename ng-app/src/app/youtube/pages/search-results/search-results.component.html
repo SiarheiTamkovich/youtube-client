@@ -10,22 +10,14 @@
     <!-- <h2>{{sortNew.byDate}}</h2> -->
     <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
     <div class="card-statistic">
-      <p>
-        <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
-        {{videoItem.statistics.viewCount}}
-      </p>
-      <p>
-        <img src="../../../assets/img/icon/liked.svg" alt="dislike">
-        {{videoItem.statistics.likeCount}}
-      </p>
-      <p>
-        <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-        {{videoItem.statistics.dislikeCount}}
-      </p>
-      <p>
-        <img src="../../../assets/img/icon/comments.svg" alt="dislike">
-        {{videoItem.statistics.commentCount}}
-      </p>
+      <img src="../../../assets/img/icon/viewed.svg" alt="viewed">
+      <span>{{videoItem.statistics.viewCount}}</span>
+      <img src="../../../assets/img/icon/liked.svg" alt="liked">
+      <span>{{videoItem.statistics.likeCount}}</span>
+      <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
+      <span>{{videoItem.statistics.dislikeCount}}</span>
+      <img src="../../../assets/img/icon/comments.svg" alt="comments">
+      <span>{{videoItem.statistics.commentCount}}</span>
     </div>
     <h2>{{videoItem.snippet.title}}</h2>
     <button (click)="viewItem(videoItem.id)">more...</button>

@@ -32,7 +32,7 @@ export class ItemPageComponent implements OnInit {
         if (item.id === this.itemId) this.video = item;
       });
       this.spinner = false;
-      console.log(this.video)
+//      console.log(this.video)
     });
   }
 

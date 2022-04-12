@@ -46,7 +46,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     HttpClientModule,
     MatIconModule, MatProgressSpinnerModule,
-  ],
+    ],
   providers: [
     SearchService,
     YoutubeService,

@@ -1,23 +1,24 @@
 import { Directive, ElementRef, Renderer2  } from '@angular/core';
+import { DateFormat } from './date-format';
 
 @Directive({
   selector: '[appGetColorFromDate]'
 })
 export class GetColorFromDateDirective {
 
-  private currentDate = new Date;
-  private countDays: number = Math.round(Number(this.currentDate) / 1000 / 3600 / 24);
-
-  constructor(private elementRef: ElementRef, private render2: Renderer2) {
+  constructor(
+    private elementRef: ElementRef,
+    private render2: Renderer2,
+    private dateFormat: DateFormat) {
 // console.log(this.elementRef)
-// console.log(this.countDays)
   }
-  
-  ngAfterViewInit() {
-    const dateCreate = new Date(this.elementRef.nativeElement.dataset.datePublish);
-    const countDayFromDateCreate = Math.round(dateCreate.getTime() / 1000 / 3600 /24);
-    const daysPass = this.countDays - countDayFromDateCreate;
 
+  ngAfterViewInit() {
+
+    const daysPass = this.dateFormat.countDayPassFromDate(
+      this.elementRef.nativeElement.dataset.datePublish
+    );
+  
     const setColor = (color:string) =>
       this.render2.setStyle(
         this.elementRef.nativeElement, 'border-bottom', `solid 8px ${color}`
