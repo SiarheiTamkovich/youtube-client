@@ -15,7 +15,7 @@ export class ItemPageComponent implements OnInit {
 
   public itemId: string;
   public video: SearchItemModel;
-  private _dataSubscriptionFilm: Subscription;
+  private dataSubscriptionFilm$: Subscription;
   public spinner: boolean = true;
 
   constructor(
@@ -27,7 +27,7 @@ export class ItemPageComponent implements OnInit {
   ngOnInit(): void {
     this.itemId = this.route.snapshot.params['id'];
 
-    this._dataSubscriptionFilm = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
+    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
       data.items.map(item => {
         if (item.id === this.itemId) this.video = item;
       });
@@ -37,7 +37,7 @@ export class ItemPageComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this._dataSubscriptionFilm.unsubscribe();
+    this.dataSubscriptionFilm$.unsubscribe();
   }
 
   public goBack(): void {

@@ -39,7 +39,7 @@
 
     span {
       font-size: 11px;
-      color: #000;
+      color: $color-font-black;
     }
   }
 
@@ -62,7 +62,7 @@
     background-color: $color-main;
     cursor: pointer;
     filter: drop-shadow(2px 0px 2px $color-main);
-    color: #fff;
+    color: $color-font-wite;
     font-size: 12px;
     letter-spacing: 1px;
     border: none;

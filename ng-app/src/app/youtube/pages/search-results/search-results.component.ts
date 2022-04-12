@@ -19,8 +19,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   public videoItems: SearchItemModel[] = [];
   public sortNew: SortModel;
 
-  private _dataSubscriptionFilm: Subscription;
-  private _dataSubscriptionSort: Subscription;
+  private dataSubscriptionFilm$: Subscription;
+  private dataSubscriptionSort$: Subscription;
 
   constructor(
     private searchService: SearchService,
@@ -60,13 +60,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._dataSubscriptionFilm = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
+    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
       this.videoResponse = data;
       this.videoItems = data.items;
       this.sortItems();
 //      console.log(this.videoItems);
     });
-    this._dataSubscriptionSort = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
+    this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
       this.sortNew = dataSort;
     });
   }
@@ -77,8 +77,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._dataSubscriptionFilm.unsubscribe();
-    this._dataSubscriptionSort.unsubscribe();
+    this.dataSubscriptionFilm$.unsubscribe();
+    this.dataSubscriptionSort$.unsubscribe();
   }
 
   public viewItem(id: string): void {

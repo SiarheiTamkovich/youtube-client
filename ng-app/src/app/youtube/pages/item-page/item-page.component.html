@@ -21,22 +21,14 @@
         <p>{{video.snippet.localized.description}}</p>
       </div>
       <div class="card-statistic">
-        <p>
-          <img src="../../../assets/img/icon/viewed.svg" alt="dislike">
-          {{video.statistics.viewCount}}
-        </p>
-        <p>
-          <img src="../../../assets/img/icon/liked.svg" alt="dislike">
-          {{video.statistics.likeCount}}
-        </p>
-        <p>
+          <img src="../../../assets/img/icon/viewed.svg" alt="viewed">
+          <span>{{video.statistics.viewCount}}</span>
+          <img src="../../../assets/img/icon/liked.svg" alt="liked">
+          <span>{{video.statistics.likeCount}}</span>
           <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-          {{video.statistics.dislikeCount}}
-        </p>
-        <p>
-          <img src="../../../assets/img/icon/comments.svg" alt="dislike">
-          {{video.statistics.commentCount}}
-        </p>
+          <span>{{video.statistics.dislikeCount}}</span>
+          <img src="../../../assets/img/icon/comments.svg" alt="comments">
+          <span>{{video.statistics.commentCount}}</span>
       </div>
     </div>
   </div>
