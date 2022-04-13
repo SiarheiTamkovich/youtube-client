@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
+import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 import { SearchService } from '../../../core/services/search.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
@@ -24,6 +25,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   constructor(
     private searchService: SearchService,
+    private youtubeHttpService: YoutubeHttpService,
     public srv: YoutubeService,
     private router: Router,
   ) {}
@@ -64,8 +66,16 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       this.videoResponse = data;
       this.videoItems = data.items;
       this.sortItems();
-//      console.log(this.videoItems);
+      console.log(this.videoItems);
     });
+
+    // this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
+    //   this.videoResponse = data;
+    //   this.videoItems = data.items;
+    //   this.sortItems();
+    //   console.log(this.videoItems);
+    // });
+
     this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
       this.sortNew = dataSort;
     });

@@ -1,0 +1,692 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "dCqzckZwCRmk07J79gotJ4-BBHo",
+  "nextPageToken": "CBQQAA",
+  "regionCode": "BY",
+  "pageInfo": {
+    "totalResults": 1000000,
+    "resultsPerPage": 20
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "hfvRK-LHsoMS0xFfyKuA3B-QVfI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Rf54BH35yrY"
+      },
+      "snippet": {
+        "publishedAt": "2019-09-04T15:00:12Z",
+        "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
+        "title": "Angular Основы. Полный Курс для начинающих",
+        "description": "Полный курс по Angular: https://clc.to/angular Подпишись на меня в Instagram: https://www.instagram.com/vladilen.minin/ ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Rf54BH35yrY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Rf54BH35yrY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Rf54BH35yrY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Владилен Минин",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-09-04T15:00:12Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "kV1YtCLsH-hyS7PslaK3Amr-DVQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "m0yGx2MGZWg"
+      },
+      "snippet": {
+        "publishedAt": "2018-05-13T07:44:08Z",
+        "channelId": "UCe_H8hzx9WV7Ca7Ps5gt72Q",
+        "title": "Что такое Angular. Обзор возможностей",
+        "description": "В этом видео речь пойдет про javascript фреймворк Angular. Я расскажу что такое Angular, где и когда его применяют, а так ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/m0yGx2MGZWg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/m0yGx2MGZWg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/m0yGx2MGZWg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Web Developer Blog",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-05-13T07:44:08Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "u0gFCBHdxhqptltJaxbyuCgdXf8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "k5E2AVpwsko"
+      },
+      "snippet": {
+        "publishedAt": "2017-09-05T16:48:15Z",
+        "channelId": "UCWv7vMbMWH4-V0ZXdmDpPBA",
+        "title": "Angular Tutorial for Beginners: Learn Angular &amp; TypeScript",
+        "description": "Angular tutorial for beginners: Learn Angular & TypeScript from scratch. Enjoyed this video? Please vote for me as the Top ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/k5E2AVpwsko/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/k5E2AVpwsko/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/k5E2AVpwsko/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Programming with Mosh",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-09-05T16:48:15Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "ufg3pUcz4BuPN6IKJGBSQmqs8Tg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "3dHNOWTI7H8"
+      },
+      "snippet": {
+        "publishedAt": "2021-05-06T15:40:03Z",
+        "channelId": "UC29ju8bIPH5as8OGnQzwJyA",
+        "title": "Angular Crash Course",
+        "description": "Learn the fundamentals of Angular in this project-based crash course Video Sponsor: https://www.hostinger.com/traversymedia ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3dHNOWTI7H8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3dHNOWTI7H8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3dHNOWTI7H8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Traversy Media",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-05-06T15:40:03Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "jUAeNzm9lkEYB2hqrgiyVs2zGhs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "2zeICFmDzC4"
+      },
+      "snippet": {
+        "publishedAt": "2021-09-25T09:31:24Z",
+        "channelId": "UCeObZv89Stb2xLtjLJ0De3Q",
+        "title": "ANGULAR - САМЫЙ ПОПУЛЯРНЫЙ JS-фреймворк / Бета-разработчик / Интервью с Глебом Михеевым",
+        "description": "https://gb.ru/link/jqBfQN - Стань разработчиком вместе с GeekBrains Сегодня у меня в гостях тот самый парень, которого вы ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2zeICFmDzC4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2zeICFmDzC4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2zeICFmDzC4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "АйТиБорода",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-09-25T09:31:24Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Vz-u3dg3zkGapEDauIUEy57oUgA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "YN8zNnV0sK8"
+      },
+      "snippet": {
+        "publishedAt": "2019-05-30T12:42:19Z",
+        "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
+        "title": "Angular - Быстрый курс за 60 минут",
+        "description": "Подпишись на меня в Instagram: https://www.instagram.com/vladilen.minin/ Telegram: https://t.me/js_by_vladilen Подписывайся ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YN8zNnV0sK8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YN8zNnV0sK8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YN8zNnV0sK8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Владилен Минин",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-05-30T12:42:19Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "RoS4KBHqrtmJO2fTPk51vDmQrnE",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "VAkio68d51A"
+      },
+      "snippet": {
+        "publishedAt": "2019-02-25T00:09:23Z",
+        "channelId": "UCZ9qFEC82qM6Pk-54Q4TVWA",
+        "title": "What is Angular? (Explained for Beginners)",
+        "description": "When you're just starting out you are probably wondering \"What is Angular exactly? When you ask that question it leads to a lot of ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/VAkio68d51A/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/VAkio68d51A/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/VAkio68d51A/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Andy Sterkowitz",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-02-25T00:09:23Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "dj3JLIa9m5SZs76Lwk7vz9oCKfo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "rc3E4tplFCU"
+      },
+      "snippet": {
+        "publishedAt": "2019-10-29T15:00:14Z",
+        "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
+        "title": "Angular 40 вопросов для собеседования",
+        "description": "Мои Курсы: https://bit.ly/3k2uiT8 Подписывайся на соц сети: Telegram: https://teleg.one/js_by_vladilen Instagram: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rc3E4tplFCU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rc3E4tplFCU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rc3E4tplFCU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Владилен Минин",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-10-29T15:00:14Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "XXoRJjQfQ-Wnb5AbytSI0ZsZv10",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Ata9cSC2WpM"
+      },
+      "snippet": {
+        "publishedAt": "2020-09-09T17:54:21Z",
+        "channelId": "UCsBjURrPoezykLs9EqgamOA",
+        "title": "Angular in 100 Seconds",
+        "description": "Angular is arguably the most advanced frontend JavaScript framework ever created. Learn the basics of Angular in 100 Seconds.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Ata9cSC2WpM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Ata9cSC2WpM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Ata9cSC2WpM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Fireship",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-09-09T17:54:21Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "bxSX48eVoSjhb3qc6NlkjwYPj_c",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "LsmmNinmtps"
+      },
+      "snippet": {
+        "publishedAt": "2022-01-10T09:39:27Z",
+        "channelId": "UCbWjJBhSA19OGR6l-eqQzxQ",
+        "title": "Angular in 2022 - Still worth learning?",
+        "description": "In 2022 the internet will tell you Angular is finished - The \"Angular vs React\" crowd decided learning Angular is completely useless ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LsmmNinmtps/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LsmmNinmtps/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LsmmNinmtps/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Hadi Ayoub",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-01-10T09:39:27Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "tPuG0Y014krvSoMdbmRl_mhFhno",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "3P9D9rrYOog"
+      },
+      "snippet": {
+        "publishedAt": "2021-03-22T11:22:50Z",
+        "channelId": "UCIIt69f5D44s2cdb9vXQNzA",
+        "title": "ANGULAR - что это такое?",
+        "description": "NEW 2021!!! Учись в LOFTSCHOOL ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3P9D9rrYOog/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3P9D9rrYOog/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3P9D9rrYOog/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "loftblog",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-03-22T11:22:50Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "-4Qo5lRpv2cHUyAsak75PYeW1-E",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "T_Fe4IaG0KU"
+      },
+      "snippet": {
+        "publishedAt": "2019-09-09T10:49:50Z",
+        "channelId": "UCXgGY0wkgOzynnHvSEVmE3A",
+        "title": "Angular Crash Course for beginners",
+        "description": "Welcome to another crash course. This time we will learn Angular. Angular can be a little confusing topic at start but with this crash ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/T_Fe4IaG0KU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/T_Fe4IaG0KU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/T_Fe4IaG0KU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Hitesh Choudhary",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-09-09T10:49:50Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "dPSmnBv7RbUGT6GS81PMTWf6Q9U",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "ZHvQv34WKlk"
+      },
+      "snippet": {
+        "publishedAt": "2022-02-03T17:54:32Z",
+        "channelId": "UCqz_fCqg4hIPatWg1gxAAjA",
+        "title": "Разрушаем мифы про Angular",
+        "description": "Очень часто вижу, что люди задаются таким вопросом: «А правда ли то, что Angular сложный, тяжелый и трудно ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ZHvQv34WKlk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ZHvQv34WKlk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ZHvQv34WKlk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Math.random: javascript community",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-02-03T17:54:32Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "suUni8i2GrudfV2qqGlolufMegw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "AAu8bjj6-UI"
+      },
+      "snippet": {
+        "publishedAt": "2021-10-20T15:11:50Z",
+        "channelId": "UC8butISFwT-Wl7EV0hUK0BQ",
+        "title": "Angular Tutorial for Beginners - Web Framework with Typescript Course",
+        "description": "Learn the basics of Angular in this full course for beginners. Angular is a TypeScript-based free and open-source web application ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/AAu8bjj6-UI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/AAu8bjj6-UI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/AAu8bjj6-UI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "freeCodeCamp.org",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-10-20T15:11:50Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "EIHwrixE_cu7PD2WZRBCNBVYxr0",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Nm8GpLCAgwk"
+      },
+      "snippet": {
+        "publishedAt": "2019-06-25T11:48:17Z",
+        "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
+        "title": "React или Vue или Angular. Что Выбрать?",
+        "description": "Подпишись на меня в Instagram: https://www.instagram.com/vladilen.minin/ Telegram: https://t.me/js_by_vladilen Подписывайся ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Nm8GpLCAgwk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Nm8GpLCAgwk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Nm8GpLCAgwk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Владилен Минин",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-06-25T11:48:17Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "5E1nAyYRZpR4iiiCS-mitNSdk5I",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "C-G7wzMEbE4"
+      },
+      "snippet": {
+        "publishedAt": "2020-04-01T10:00:05Z",
+        "channelId": "UCGtfdLFi1UVzIs4M3TSYpAQ",
+        "title": "Развојни алат Angular (део 1) - Никола Ајзенхамер",
+        "description": "Сва питања можете поставити у документу на адреси ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/C-G7wzMEbE4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/C-G7wzMEbE4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/C-G7wzMEbE4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "MATF Programiranje za veb",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-04-01T10:00:05Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "mpgufNFyr55C_mw96SzYZkSrtuo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "i-CYMi_oXYM"
+      },
+      "snippet": {
+        "publishedAt": "2021-08-30T16:59:44Z",
+        "channelId": "UCdpPBwKPriPIP2eyP9a1C6g",
+        "title": "Angular с полного нуля // Путь до Middle Angular",
+        "description": "Интенсив React с нуля (приложение для тренировок) ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/i-CYMi_oXYM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/i-CYMi_oXYM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/i-CYMi_oXYM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "RED Group",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-08-30T16:59:44Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "wRFbVEfkFA9wKKflWe8PCS9nPTQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "WHv1YQUg6ow"
+      },
+      "snippet": {
+        "publishedAt": "2021-11-01T11:47:07Z",
+        "channelId": "UCyLNhHSiEVkVwPSFKxJAfSA",
+        "title": "The Modern Angular Crash Course - 2022",
+        "description": "This is part 1 of a 3 part series where we are going to learn angular in great detail GitHub Repo: ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WHv1YQUg6ow/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WHv1YQUg6ow/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WHv1YQUg6ow/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Laith Harb",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-11-01T11:47:07Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "pP8lr-5RI5dQc2E9qG44_BlXFTw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "k8iy8-85r0Q"
+      },
+      "snippet": {
+        "publishedAt": "2022-03-26T19:29:05Z",
+        "channelId": "UCGntVzOD7faGCYbrUfd8PQg",
+        "title": "Angular легко делает, то что считается преимуществом React",
+        "description": "В этом видео отвечу на поступивший вопрос как сделать аналог компонентов верхнего уровня React, так же покажу ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/k8iy8-85r0Q/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/k8iy8-85r0Q/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/k8iy8-85r0Q/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Архитектор ПО. Александр Желнин",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-03-26T19:29:05Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Kl9lnOwMnmOBA-UvfOqnby3O_UA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "G0bBLvWXBvc"
+      },
+      "snippet": {
+        "publishedAt": "2019-09-16T16:53:41Z",
+        "channelId": "UCsBjURrPoezykLs9EqgamOA",
+        "title": "Angular for Beginners - Let&#39;s build a Tic-Tac-Toe PWA",
+        "description": "Learn the basics of Angular 8 by building a tic-tac-toe game 🕹️ from scratch...Then deploy it as an installable progressive web ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/G0bBLvWXBvc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/G0bBLvWXBvc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/G0bBLvWXBvc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Fireship",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-09-16T16:53:41Z"
+      }
+    }
+  ]
+}
