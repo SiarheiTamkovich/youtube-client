@@ -62,19 +62,20 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
-      this.videoResponse = data;
-      this.videoItems = data.items;
-      this.sortItems();
-      console.log(this.videoItems);
-    });
-
-    // this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
+    //
+    // this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
     //   this.videoResponse = data;
     //   this.videoItems = data.items;
     //   this.sortItems();
     //   console.log(this.videoItems);
     // });
+
+    this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
+      this.videoResponse = data;
+      this.videoItems = data.items;
+      this.sortItems();
+//      console.log(this.videoItems[0]);
+    });
 
     this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
       this.sortNew = dataSort;

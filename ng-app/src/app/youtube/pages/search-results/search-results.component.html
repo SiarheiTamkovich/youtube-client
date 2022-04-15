@@ -11,16 +11,17 @@
     <img src="{{videoItem.snippet.thumbnails.medium.url}}" alt="screen-image">
     <div class="card-statistic">
       <img src="../../../assets/img/icon/viewed.svg" alt="viewed">
-      <span>{{videoItem.statistics.viewCount}}</span>
+      <span>{{videoItem.statistics?.viewCount}}</span>
       <img src="../../../assets/img/icon/liked.svg" alt="liked">
-      <span>{{videoItem.statistics.likeCount}}</span>
+      <span>{{videoItem.statistics?.likeCount}}</span>
       <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-      <span>{{videoItem.statistics.dislikeCount}}</span>
+      <span>{{videoItem.statistics?.dislikeCount}}</span>
       <img src="../../../assets/img/icon/comments.svg" alt="comments">
-      <span>{{videoItem.statistics.commentCount}}</span>
+      <span>{{videoItem.statistics?.commentCount}}</span>
     </div>
     <h2>{{videoItem.snippet.title}}</h2>
-    <button (click)="viewItem(videoItem.id)">more...</button>
+    <button (click)="viewItem(videoItem.id.videoId)">more...</button>
   </div>
 </div>
+
 

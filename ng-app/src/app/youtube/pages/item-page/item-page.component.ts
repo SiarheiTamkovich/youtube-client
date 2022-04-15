@@ -29,7 +29,7 @@ export class ItemPageComponent implements OnInit {
 
     this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
       data.items.map(item => {
-        if (item.id === this.itemId) this.video = item;
+        if (item.id.videoId === this.itemId) this.video = item;
       });
       this.spinner = false;
 //      console.log(this.video)

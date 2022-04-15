@@ -8,13 +8,13 @@ import { map, Observable } from 'rxjs';
 })
 export class SearchService {
 
-  private url: string = '../assets/response.json';
+//  private url: string = '../../../assets/search-new.json';
+  private url: string = '../../../assets/response.json';
 //  private route: ActivatedRoute,
 
   constructor(private http: HttpClient) {}
 
   public getData$(): Observable<SearchResponseModel> {
-    // return this.http.get<SearchResponseModel>(this.url);
     return this.http.get<SearchResponseModel>(this.url).pipe(
       map((data: SearchResponseModel) => data),
     );
