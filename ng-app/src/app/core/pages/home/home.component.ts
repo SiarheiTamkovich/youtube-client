@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged, map, pipe, Subject } from 'rxjs';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   public isFiltersON: boolean = false;
   public isSearchON: boolean = false;
   public inputValue: string;
+  public searchString$: Subject<string> = new Subject();
 
   ngOnInit(): void {}
 
@@ -25,9 +27,17 @@ export class HomeComponent implements OnInit {
   }
 
   public getSearchParams(params: string): void {
-    if (params === '') return;
-    this.router.navigate(['home/search'], {queryParams: {order: params}});
-    // console.log(params);
+    if (params.length < 3) return;
+    this.searchString$
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+    )
+    .subscribe(value => {
+      this.router.navigate(['home/search'], {queryParams: {order: value}});
+//      console.log(value);
+    })
+    this.searchString$.next(params)
   }
 
   public sendEventClickSortByData(): void {
@@ -54,3 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
 }
+function subscribe(arg0: (val: string) => void) {
+  throw new Error('Function not implemented.');
+}
+

@@ -1,7 +1,8 @@
 <div class="header-search">
   <img src="../../assets/img/icon/play.svg" alt="play">
-  <input #Item type="search" placeholder=" What are you want to find out?">
-  <button (click)="inputValueEmit(Item.value)" class="search-input-btn">search</button>
+  <!-- <input #Item type="search" placeholder=" What are you want to find out?">
+  <button (click)="inputValueEmit(Item.value)" class="search-input-btn">search</button> -->
+  <input #Item type="search" (keyup)="inputValueEmit(Item.value)" placeholder=" What are you want to find out?">
   <button (click)="btnClickEmit()" class="search-setting-btn">
     <img src="../../assets/img/icon/search_settings.svg" alt="setting">
   </button>
