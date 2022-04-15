@@ -15,7 +15,7 @@
       <img src="../../../assets/img/icon/liked.svg" alt="liked">
       <span>{{videoItem.statistics?.likeCount}}</span>
       <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-      <span>{{videoItem.statistics?.dislikeCount}}</span>
+      <span>{{videoItem.statistics?.dislikeCount || '0'}}</span>
       <img src="../../../assets/img/icon/comments.svg" alt="comments">
       <span>{{videoItem.statistics?.commentCount}}</span>
     </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
 import { Location } from '@angular/common';
+import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 
 @Component({
   selector: 'app-item-page',
@@ -20,19 +20,26 @@ export class ItemPageComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    private searchService: SearchService,
+    private youtubeHttpService: YoutubeHttpService,
     private location: Location,
   ) { }
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.params['id'];
 
-    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
+    // this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
+    //   this.videoResponse = data;
+    //   this.videoItems = data.items;
+    //   this.sortItems();
+//      console.log(this.videoItems[0]);
+    // });
+
+    this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
       data.items.map(item => {
         if (item.id.videoId === this.itemId) this.video = item;
       });
       this.spinner = false;
-//      console.log(this.video)
+      console.log(this.video)
     });
   }
 

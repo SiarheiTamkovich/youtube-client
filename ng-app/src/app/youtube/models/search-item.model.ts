@@ -50,7 +50,7 @@ export interface VideoInfo {
 export interface VideoStatistics {
   viewCount: string;
   likeCount: string;
-  dislikeCount: string;
+  dislikeCount?: string;
   favoriteCount: string;
   commentCount: string;
 }
@@ -61,17 +61,22 @@ export interface VideoThumbnails {
     with: number,
     height: number,
   }
+  high: {
+    url: string,
+    with: number,
+    height: number,
+  }
   medium: {
     url: string,
     with: number,
     height: number,
   }
-  standard: {
+  standard?: {
     url: string,
     with: number,
     height: number,
   }
-  maxres: {
+  maxres?: {
     url: string,
     with: number,
     height: number,

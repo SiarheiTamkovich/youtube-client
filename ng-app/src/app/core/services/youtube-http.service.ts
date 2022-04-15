@@ -11,7 +11,7 @@ export class YoutubeHttpService {
 
   private readonly SEARCH_URL = 'search'; //'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=10&q=react';
   private readonly VIDEO_INFO_URL = 'videos'; // 'https://www.googleapis.com/youtube/v3/videos?&part=snippet,statistics';
-  private readonly LIMIT = 20;
+  private readonly LIMIT = 1;
 
   constructor(private http: HttpClient ) { }
 
@@ -21,7 +21,7 @@ export class YoutubeHttpService {
       .set('type', 'video')
       .set('part', 'snippet')
       .set('maxResults', (this.LIMIT).toString())
-      .set('q', 'interceptors')
+      .set('q', 'rocky')
   //    .set('q', searchCriteria || '');
   //    .set('start', (page * this.LIMIT).toString())
 

@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
 import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
-import { SearchService } from '../../../core/services/search.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
@@ -24,7 +23,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   private dataSubscriptionSort$: Subscription;
 
   constructor(
-    private searchService: SearchService,
     private youtubeHttpService: YoutubeHttpService,
     public srv: YoutubeService,
     private router: Router,
