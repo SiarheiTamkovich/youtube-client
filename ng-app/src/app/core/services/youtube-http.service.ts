@@ -23,7 +23,7 @@ export class YoutubeHttpService {
   public getSearchParams(){
     this.route.queryParams.subscribe((params) => {
       this.searchString = params['order'];
-      console.log(this.searchString);
+//      console.log(this.searchString);
       return this.searchString;
     })
   }
@@ -36,7 +36,7 @@ export class YoutubeHttpService {
   public getVideo$(): Observable<any> {
 
     const searchString = this.getSearchParams();
-    
+
       const params = new HttpParams()
       .set('type', 'video')
       .set('part', 'snippet')
@@ -44,7 +44,7 @@ export class YoutubeHttpService {
       .set('q', this.searchString )
   //    .set('start', (page * this.LIMIT).toString())
 
-  console.log(this.searchString)
+//  console.log(this.searchString)
 
   const result = this.http.get<SearchResponseModel>(this.SEARCH_URL, { params })
     .pipe(

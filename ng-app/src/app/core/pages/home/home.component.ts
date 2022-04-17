@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, pipe, Subject } from 'rxjs';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
@@ -8,7 +8,7 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
@@ -20,7 +20,19 @@ export class HomeComponent implements OnInit {
   public inputValue: string;
   public searchString$: Subject<string> = new Subject();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.searchString$.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+    )
+    .subscribe(value => {
+      this.getSearchVideo(value);
+    });
+  }
+  ngOnDestroy(): void {
+    this.searchString$.unsubscribe();
+  }
+
 
   public displayFilters(): void {
     this.isFiltersON = !this.isFiltersON;
@@ -28,16 +40,11 @@ export class HomeComponent implements OnInit {
 
   public getSearchParams(params: string): void {
     if (params.length < 3) return;
-    this.searchString$
-    .pipe(
-      debounceTime(500),
-      distinctUntilChanged(),
-    )
-    .subscribe(value => {
-      this.router.navigate(['home/search'], {queryParams: {order: value}});
-//      console.log(value);
-    })
-    this.searchString$.next(params)
+    this.searchString$.next(params);
+  }
+
+  public getSearchVideo(value: string){
+    this.router.navigate(['home/search'], {queryParams: {order: value}});
   }
 
   public sendEventClickSortByData(): void {
@@ -62,9 +69,5 @@ export class HomeComponent implements OnInit {
   public sendInputFilterByString(value: string): void {
     this.srv.sort.inputFilterValue = value;
   }
-
-}
-function subscribe(arg0: (val: string) => void) {
-  throw new Error('Function not implemented.');
 }
 
