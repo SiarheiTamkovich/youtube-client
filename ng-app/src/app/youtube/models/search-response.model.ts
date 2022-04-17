@@ -1,4 +1,3 @@
-import { HttpParams } from '@angular/common/http';
 import { SearchItemModel } from './search-item.model';
 
 export interface SearchResponseModel {

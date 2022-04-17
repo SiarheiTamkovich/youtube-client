@@ -82,3 +82,12 @@ export interface VideoThumbnails {
     height: number,
   }
 }
+
+export interface ResponseItemInfoModel {
+  etag: string,
+  id: string,
+  kind: string,
+  snippet: VideoSnippet,
+  statistics: VideoStatistics,
+}
+

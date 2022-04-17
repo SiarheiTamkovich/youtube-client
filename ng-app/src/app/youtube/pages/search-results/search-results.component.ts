@@ -5,8 +5,7 @@ import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -18,6 +17,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
   public sortNew: SortModel;
+  private searchString: string;
 
   private dataSubscriptionFilm$: Subscription;
   private dataSubscriptionSort$: Subscription;
@@ -26,6 +26,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     private youtubeHttpService: YoutubeHttpService,
     public srv: YoutubeService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   public sortItems() {
@@ -60,34 +61,31 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    //
-    // this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
-    //   this.videoResponse = data;
-    //   this.videoItems = data.items;
-    //   this.sortItems();
-    //   console.log(this.videoItems);
-    // });
 
-    this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
-      this.videoResponse = data;
-      this.videoItems = data.items;
-      this.sortItems();
-//      console.log(this.videoItems[0]);
-    });
+    this.route.queryParams.subscribe((params) => {
+
+      this.searchString = params['order'];
+
+      this.dataSubscriptionFilm$ = this.youtubeHttpService
+          .getVideo$(this.searchString).subscribe((data: SearchResponseModel) => {
+            this.videoResponse = data;
+            this.videoItems = data.items;
+            this.sortItems();
+      //      console.log(this.videoItems[0]);
+        });
+    })
 
     this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
       this.sortNew = dataSort;
     });
   }
-
-  ngDoCheck(){
-    this.sortItems();
-//    console.log(this.sortNew);
-  }
-
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
     this.dataSubscriptionSort$.unsubscribe();
+  }
+  ngDoCheck(){
+    this.sortItems();
+//    console.log(this.sortNew);
   }
 
   public viewItem(id: string): void {

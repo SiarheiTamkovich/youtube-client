@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SearchItemModel } from '../../models/search-item.model';
+import { ResponseItemInfoModel, SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
 import { Location } from '@angular/common';
 import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
@@ -14,7 +14,7 @@ import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 export class ItemPageComponent implements OnInit {
 
   public itemId: string;
-  public video: SearchItemModel;
+  public video: ResponseItemInfoModel;
   private dataSubscriptionFilm$: Subscription;
   public spinner: boolean = true;
 
@@ -27,19 +27,11 @@ export class ItemPageComponent implements OnInit {
   ngOnInit(): void {
     this.itemId = this.route.snapshot.params['id'];
 
-    // this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
-    //   this.videoResponse = data;
-    //   this.videoItems = data.items;
-    //   this.sortItems();
-//      console.log(this.videoItems[0]);
-    // });
-
-    this.dataSubscriptionFilm$ = this.youtubeHttpService.getVideo$().subscribe((data: SearchResponseModel) => {
-      data.items.map(item => {
-        if (item.id.videoId === this.itemId) this.video = item;
-      });
-      this.spinner = false;
-      console.log(this.video)
+    this.dataSubscriptionFilm$ = this.youtubeHttpService
+      .getVideoInfoById$( this.itemId).subscribe((data: ResponseItemInfoModel) => {
+        this.video = data;
+        this.spinner = false;
+        console.log(this.video)
     });
   }
 
