@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ResponseItemInfoModel, SearchItemModel } from '../../models/search-item.model';
-import { SearchResponseModel } from '../../models/search-response.model';
 import { Location } from '@angular/common';
 import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 
@@ -34,7 +33,6 @@ export class ItemPageComponent implements OnInit {
         console.log(this.video)
     });
   }
-
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
   }

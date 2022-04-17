@@ -15,15 +15,14 @@ export class YoutubeService {
     inputFilterValue: '',
   }
 
-  constructor() { }
+  constructor() {}
 
   public getDataSort$(): Observable <SortModel>{
-//    console.log(this.sortNew)
     return of(this.sort);
   }
 
   public setDataSort$(sort: SortModel): void {
-  //  console.log(this.sortNew)
     this.sort = sort;
+    //console.log(this.sort)
   }
 }

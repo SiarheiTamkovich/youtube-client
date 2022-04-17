@@ -16,7 +16,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
-  public sortNew: SortModel;
+  public sortParams: SortModel;
   private searchString: string;
 
   private dataSubscriptionFilm$: Subscription;
@@ -30,29 +30,28 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ) {}
 
   public sortItems() {
-
-  if (this.sortNew.byDate === 'incr') {
+  if (this.sortParams.byDate === 'incr') {
     this.videoItems.sort(
       (a, b) => new Date(b.snippet.publishedAt).getTime() -
       new Date(a.snippet.publishedAt).getTime()
     );
   }
 
-  if (this.sortNew.byDate === 'decr') {
+  if (this.sortParams.byDate === 'decr') {
     this.videoItems.sort(
       (a, b) => new Date(a.snippet.publishedAt).getTime() -
       new Date(b.snippet.publishedAt).getTime()
     );
   }
 
-  if (this.sortNew.byViews === 'incr') {
+  if (this.sortParams.byViews === 'incr') {
       this.videoItems.sort(
         (a, b) => Number(a.statistics.viewCount) -
         Number(b.statistics.viewCount)
       );
     }
 
-  if (this.sortNew.byViews === 'decr') {
+  if (this.sortParams.byViews === 'decr') {
       this.videoItems.sort(
         (a, b) => Number(b.statistics.viewCount) -
         Number(a.statistics.viewCount)
@@ -71,13 +70,15 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
             this.videoResponse = data;
             this.videoItems = data.items;
             this.sortItems();
-      //      console.log(this.videoItems[0]);
+            //console.log(this.videoItems[0]);
         });
     })
 
-    this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
-      this.sortNew = dataSort;
-    });
+    this.dataSubscriptionSort$ = this.srv.getDataSort$()
+      .subscribe((dataSort: SortModel) => {
+        this.sortParams = dataSort;
+        //console.log(dataSort);
+      });
   }
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
@@ -85,7 +86,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
   ngDoCheck(){
     this.sortItems();
-//    console.log(this.sortNew);
+    //console.log(this.sortParams);
   }
 
   public viewItem(id: string): void {

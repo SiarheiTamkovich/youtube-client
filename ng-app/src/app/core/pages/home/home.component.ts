@@ -64,7 +64,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.youtubeService.sort.byDate = 'no';
     this.youtubeService.sort.counterViews++;
     if (this.youtubeService.sort.counterViews === 1) this.youtubeService.sort.byViews = 'incr';
-    if (this.youtubeService.sort.counterViews === 2) {this.youtubeService.sort.byViews = 'decr'; this.youtubeService.sort.counterViews = 0};
+    if (this.youtubeService.sort.counterViews === 2) {
+      this.youtubeService.sort.byViews = 'decr';
+      this.youtubeService.sort.counterViews = 0
+    };
     this.youtubeService.setDataSort$(this.youtubeService.sort);
   }
 
