@@ -6,13 +6,15 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,

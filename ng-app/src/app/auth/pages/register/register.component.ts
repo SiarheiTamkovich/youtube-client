@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
     this.userForm = new FormGroup ({
       'firstName': new FormControl('', [Validators.required]),
       'lastName': new FormControl('', [Validators.required]),

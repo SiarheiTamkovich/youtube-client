@@ -1,0 +1,30 @@
+<div class="admin-page">
+  <h2>Create New Card</h2>
+  <form [formGroup]="createCardForm" (ngSubmit)="submit()">
+    <div class="input-container">
+      <label>Title</label>
+      <input type="text" formControlName="title"/>
+      <div
+        class="alert-error"
+        *ngIf="!title?.valid && (title?.dirty || title?.touched)">
+        <div [hidden]="!title?.errors?.['required']">
+          Please enter a title
+        </div>
+        <div [hidden]="!title?.errors?.['minlength']">
+          The title is too short
+        </div>
+        <div [hidden]="!title?.errors?.['maxlength']">
+          The title is too long
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button (click)="getTitle()">getTitle</button>
+      <button type="submit"  [disabled]="!createCardForm.valid" >Create Card</button>
+    </div>
+
+
+  </form>
+</div>
+
