@@ -1,1 +1,43 @@
-<p>register works!</p>
+<div class="register-page">
+  <h2>Registration</h2>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+
+    <label>First Name</label>
+    <input id="firstname" type="text" formControlName="firstName"/>
+    <span
+      class="alert-error"
+      *ngIf="firstName?.invalid && firstName?.touched">
+      Please enter your First Name
+    </span>
+
+    <label>Last Name </label>
+    <input type="text" formControlName="lastName" />
+    <span
+      class="alert-error"
+      *ngIf="lastName?.invalid && lastName?.touched">
+      Please enter your Last Name
+    </span>
+
+    <label>mail </label>
+    <input type="email" formControlName="mail" />
+    <span
+      class="alert-error"
+      *ngIf="mail?.invalid && mail?.touched && !mail?.value">
+      Please enter a login email
+    </span>
+    <span
+      class="alert-error"
+      *ngIf="mail?.invalid && mail?.touched && mail?.dirty && mail?.value">
+      The login email is invalid
+    </span>
+
+
+    <div>
+      <a href="home/auth/login">Login</a>
+      <button type="submit" [disabled]="userForm.invalid" >Registration</button>
+    </div>
+
+    <!-- <span class="alert-error" *ngIf="userForm.invalid">Form Status: {{userForm.status }}</span> -->
+
+  </form>
+</div>
