@@ -1,43 +1,60 @@
 <div class="register-page">
   <h2>Registration</h2>
   <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="input-container">
+      <label>First Name</label>
+      <input id="firstname" type="text" formControlName="firstName"/>
+      <span
+        class="alert-error"
+        *ngIf="firstName?.invalid && firstName?.touched">
+        Please enter your First Name
+      </span>
+    </div>
 
-    <label>First Name</label>
-    <input id="firstname" type="text" formControlName="firstName"/>
-    <span
-      class="alert-error"
-      *ngIf="firstName?.invalid && firstName?.touched">
-      Please enter your First Name
-    </span>
+    <div class="input-container">
+      <label>Last Name </label>
+      <input type="text" formControlName="lastName" />
+      <span
+        class="alert-error"
+        *ngIf="lastName?.invalid && lastName?.touched">
+        Please enter your Last Name
+      </span>
+    </div>
 
-    <label>Last Name </label>
-    <input type="text" formControlName="lastName" />
-    <span
-      class="alert-error"
-      *ngIf="lastName?.invalid && lastName?.touched">
-      Please enter your Last Name
-    </span>
+    <div class="input-container">
+      <label>mail </label>
+      <input type="email" formControlName="mail" />
+      <span
+        class="alert-error"
+        *ngIf="mail?.invalid && mail?.touched && !mail?.value">
+        Please enter a login email
+      </span>
+      <span
+        class="alert-error"
+        *ngIf="mail?.invalid && mail?.touched && mail?.dirty && mail?.value">
+        The login email is invalid
+      </span>
+    </div>
 
-    <label>mail </label>
-    <input type="email" formControlName="mail" />
-    <span
-      class="alert-error"
-      *ngIf="mail?.invalid && mail?.touched && !mail?.value">
-      Please enter a login email
-    </span>
-    <span
-      class="alert-error"
-      *ngIf="mail?.invalid && mail?.touched && mail?.dirty && mail?.value">
-      The login email is invalid
-    </span>
+    <div class="input-container">
+      <label>password </label>
+      <input type="text" formControlName="password" />
+      <span
+        class="alert-error"
+        *ngIf="password?.invalid && password?.touched && !password?.value">
+        Please enter a password
+      </span>
+      <span
+        class="alert-error"
+        *ngIf="password?.invalid && password?.touched && password?.dirty && password?.value">
+        Your password must be at least 8 characters long, include uppercase and lowercase
+        letters, numbers, and at least one special character such as ! @ # ? ]
+      </span>
+    </div>
 
-
-    <div>
+    <div class="btn-container">
       <a href="home/auth/login">Login</a>
       <button type="submit" [disabled]="userForm.invalid" >Registration</button>
     </div>
-
-    <!-- <span class="alert-error" *ngIf="userForm.invalid">Form Status: {{userForm.status }}</span> -->
-
   </form>
 </div>

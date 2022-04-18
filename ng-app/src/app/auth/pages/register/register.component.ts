@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,21 +11,20 @@ export class RegisterComponent implements OnInit {
 
   public userForm: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
     this.userForm = new FormGroup ({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('',  [Validators.required]),
-      mail: new FormControl('', [
+      'firstName': new FormControl('', [Validators.required]),
+      'lastName': new FormControl('', [Validators.required]),
+      'mail': new FormControl('', [Validators.required,Validators.email]),
+      'password': new FormControl('', [
         Validators.required,
-        Validators.email,
-      ])
+        Validators.minLength(8),
+      ]),
     });
-
   }
-
   get firstName() {
     return this.userForm.get('firstName');
   }
@@ -34,9 +34,13 @@ export class RegisterComponent implements OnInit {
   get mail() {
     return this.userForm.get('mail');
   }
-
-  public submit() {
-    console.log(this.userForm)
+  get password() {
+    return this.userForm.get('password');
   }
 
+  public submit() {
+    console.log(this.userForm);
+    alert('Registration successfully completed! Go to login page');
+    this.router.navigate(['/home/auth/login']);
+  }
 }

@@ -2,9 +2,8 @@
 
 .register-page {
   max-width: 345px;
-  height: 393px;
-  margin: 10% auto;
-  padding: 20px 20px 24px 20px;
+  margin: 5% auto;
+  padding: 15px 20px 15px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,42 +16,50 @@
     font-weight: bold;
     font-size: 18px;
     height: 20px;
-    margin: 0;
+    margin: 0 0 15px 0 0;
   }
 
   form {
     display: flex;
     flex-direction: column;
 
-    label {
-      font-size: 11px;
-      color: $color-font-grey;
-      padding-left: 5px;
-    }
+    .input-container {
+      
 
-    input {
-      width: 304px;
-      height: 37px;
-      outline: none;
-      border-left: none;
-      border-top: none;
-      border-right: none;
-      padding: 5px;
-      background-color: $color-input-form;
-      &:focus {
-        border: 1px solid  $color-main;
-        filter: drop-shadow(2px 0px 2px #2F80ED);
+      label {
+        font-size: 11px;
+        color: $color-font-grey;
+        padding-left: 5px;
+      }
+
+      input {
+        width: 304px;
+        height: 37px;
+        outline: none;
+        padding: 5px;
+        background-color: $color-input-form;
+        &:focus {
+          border: 1px solid  $color-main;
+          filter: drop-shadow(2px 0px 2px #2F80ED);
+        }
+      }
+
+      span {
+        display: block;
+        line-height: 14px;
       }
     }
 
-    div {
+    .btn-container {
+      width: 304px;
+      height: 32px;
+      margin: 15px 0 0 0;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      width: 304px;
-      height: 32px;
+
       a {
-        display: block;
+        display: inline-block;
         text-decoration: underline;
         &:visited {
           color: $color-main;
@@ -85,8 +92,11 @@
   }
 }
 
+.ng-invalid:not(form).ng-untouched {
+  border: none;
+}
 
-.ng-invalid:not(form) {
+.ng-invalid:not(form).ng-touched {
   border: none;
   border-bottom: solid 4px $color-form-invalid;
   border-radius: 4px;
@@ -98,4 +108,5 @@
 
 .alert-error {
   color: $color-form-invalid;
+  font-size: 11px;
 }
