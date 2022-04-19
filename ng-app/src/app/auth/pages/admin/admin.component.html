@@ -50,11 +50,39 @@
       </div>
     </div>
 
-
-    <div class="btn-container">
-      <button (click)="getTitle()">getTitle</button>
-      <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
+    <div class="input-container">
+      <label>Link video</label>
+      <input type="text" formControlName="linkVideo"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkVideo?.valid && (linkVideo?.dirty || linkVideo?.touched)">
+        <div [hidden]="!linkVideo?.errors?.['required']">
+          Please enter a link to the video
+        </div>
+        <div [hidden]="!linkVideo?.errors?.['pattern']">
+          The video link is invalid
+        </div>
+      </div>
     </div>
 
+    <div class="input-container">
+      <label>Creation date</label>
+      <input #date type="date" formControlName="creationDate"/>
+      <div
+        class="alert-error"
+        *ngIf="!creationDate?.valid && (creationDate?.dirty || creationDate?.touched)">
+        <div [hidden]="!creationDate?.errors?.['required']">
+          Please enter a creation date
+        </div>
+        <div [hidden]="!creationDate?.errors?.['isDataFuture']">
+          The date is invalid
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
+    </div>
+    
   </form>
 </div>
