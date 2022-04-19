@@ -1,6 +1,7 @@
 <div class="admin-page">
   <h2>Create New Card</h2>
   <form [formGroup]="createCardForm" (ngSubmit)="submit()">
+
     <div class="input-container">
       <label>Title</label>
       <input type="text" formControlName="title"/>
@@ -19,12 +20,41 @@
       </div>
     </div>
 
-    <div class="btn-container">
-      <button (click)="getTitle()">getTitle</button>
-      <button type="submit"  [disabled]="!createCardForm.valid" >Create Card</button>
+    <div class="input-container">
+      <label>Description</label>
+      <input type="text" formControlName="description"/>
+      <div
+        class="alert-error"
+        *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+        <div [hidden]="!description?.errors?.['required']">
+          Please enter a description
+        </div>
+        <div [hidden]="!description?.errors?.['maxlength']">
+          The description is too long
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>img</label>
+      <input type="text" formControlName="linkImage"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkImage?.valid && (linkImage?.dirty || linkImage?.touched)">
+        <div [hidden]="!linkImage?.errors?.['required']">
+          Please enter a link to the image
+        </div>
+        <div [hidden]="!linkImage?.errors?.['pattern']">
+          The image link is invalid
+        </div>
+      </div>
     </div>
 
 
+    <div class="btn-container">
+      <button (click)="getTitle()">getTitle</button>
+      <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
+    </div>
+
   </form>
 </div>
-
