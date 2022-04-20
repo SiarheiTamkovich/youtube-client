@@ -12,7 +12,7 @@ export class HeaderComponent {
   @Output() btnClick : EventEmitter<boolean> = new EventEmitter();
   @Output() searchParams : EventEmitter<string> = new EventEmitter();
 
-  constructor (private router: Router,  private authService: AuthService) {}
+  constructor (private router: Router,  public authService: AuthService) {}
 
   public btnClickEmit(): void {
     this.btnClick.emit();
@@ -22,13 +22,9 @@ export class HeaderComponent {
     this.searchParams.emit(value);
   }
 
-  public toggleLogIn() {
-    this.router.navigate(['/home/auth/login'])
+  public toggleLogin() {
+    this.authService.isLoggedIn ? this.router.navigate(['/home/auth/logout']) :
+      this.router.navigate(['/home/auth/login'])
   }
-
-  public toggleLogOut() {
-    this.authService.logOut();
-  }
-
 }
 

@@ -10,7 +10,7 @@ export class TextFilterPipe implements PipeTransform {
 
   transform(items: SearchItemModel[], filter: SortModel): SearchItemModel[] {
     if (!filter.inputFilterValue) return items;
-    console.log(filter)
+//    console.log(filter)
     return items.filter((item: SearchItemModel) =>
       item.snippet.title.toUpperCase()
         .indexOf(filter.inputFilterValue.toUpperCase()) !== -1)

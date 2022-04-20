@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
-import { SearchService } from '../../../core/services/search.service';
+import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -17,41 +16,42 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
-  public sortNew: SortModel;
+  public sortParams: SortModel;
+  private searchString: string;
 
   private dataSubscriptionFilm$: Subscription;
   private dataSubscriptionSort$: Subscription;
 
   constructor(
-    private searchService: SearchService,
+    private youtubeHttpService: YoutubeHttpService,
     public srv: YoutubeService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   public sortItems() {
-
-  if (this.sortNew.byDate === 'incr') {
+  if (this.sortParams.byDate === 'incr') {
     this.videoItems.sort(
       (a, b) => new Date(b.snippet.publishedAt).getTime() -
       new Date(a.snippet.publishedAt).getTime()
     );
   }
 
-  if (this.sortNew.byDate === 'decr') {
+  if (this.sortParams.byDate === 'decr') {
     this.videoItems.sort(
       (a, b) => new Date(a.snippet.publishedAt).getTime() -
       new Date(b.snippet.publishedAt).getTime()
     );
   }
 
-  if (this.sortNew.byViews === 'incr') {
+  if (this.sortParams.byViews === 'incr') {
       this.videoItems.sort(
         (a, b) => Number(a.statistics.viewCount) -
         Number(b.statistics.viewCount)
       );
     }
 
-  if (this.sortNew.byViews === 'decr') {
+  if (this.sortParams.byViews === 'decr') {
       this.videoItems.sort(
         (a, b) => Number(b.statistics.viewCount) -
         Number(a.statistics.viewCount)
@@ -60,25 +60,33 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
-      this.videoResponse = data;
-      this.videoItems = data.items;
-      this.sortItems();
-//      console.log(this.videoItems);
-    });
-    this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
-      this.sortNew = dataSort;
-    });
-  }
 
-  ngDoCheck(){
-    this.sortItems();
-//    console.log(this.sortNew);
-  }
+    this.route.queryParams.subscribe((params) => {
 
+      this.searchString = params['order'];
+
+      this.dataSubscriptionFilm$ = this.youtubeHttpService
+          .getVideo$(this.searchString).subscribe((data: SearchResponseModel) => {
+            this.videoResponse = data;
+            this.videoItems = data.items;
+            this.sortItems();
+            //console.log(this.videoItems[0]);
+        });
+    })
+
+    this.dataSubscriptionSort$ = this.srv.getDataSort$()
+      .subscribe((dataSort: SortModel) => {
+        this.sortParams = dataSort;
+        //console.log(dataSort);
+      });
+  }
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
     this.dataSubscriptionSort$.unsubscribe();
+  }
+  ngDoCheck(){
+    this.sortItems();
+    //console.log(this.sortParams);
   }
 
   public viewItem(id: string): void {

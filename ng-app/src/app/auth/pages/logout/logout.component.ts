@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss']
 })
-export class LogoutComponent implements OnInit {
+export class LogoutComponent {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public authService: AuthService,
+    private location: Location,
+  ) { }
 
-  ngOnInit(): void {
+  public logOut() {
+    this.authService.logOut();
+    this.router.navigate(['/home']);
+  }
+
+  public returnPrevPage() {
+    this.location.back();
   }
 
 }

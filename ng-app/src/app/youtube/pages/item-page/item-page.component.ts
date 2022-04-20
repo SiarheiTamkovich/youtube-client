@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SearchService } from 'src/app/core/services/search.service';
-import { SearchItemModel } from '../../models/search-item.model';
-import { SearchResponseModel } from '../../models/search-response.model';
+import { ResponseItemInfoModel, SearchItemModel } from '../../models/search-item.model';
 import { Location } from '@angular/common';
+import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 
 @Component({
   selector: 'app-item-page',
@@ -14,28 +13,26 @@ import { Location } from '@angular/common';
 export class ItemPageComponent implements OnInit {
 
   public itemId: string;
-  public video: SearchItemModel;
+  public video: ResponseItemInfoModel;
   private dataSubscriptionFilm$: Subscription;
   public spinner: boolean = true;
 
   constructor(
     public route: ActivatedRoute,
-    private searchService: SearchService,
+    private youtubeHttpService: YoutubeHttpService,
     private location: Location,
   ) { }
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.params['id'];
 
-    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
-      data.items.map(item => {
-        if (item.id === this.itemId) this.video = item;
-      });
-      this.spinner = false;
-//      console.log(this.video)
+    this.dataSubscriptionFilm$ = this.youtubeHttpService
+      .getVideoInfoById$( this.itemId).subscribe((data: ResponseItemInfoModel) => {
+        this.video = data;
+        this.spinner = false;
+        console.log(this.video)
     });
   }
-
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
   }

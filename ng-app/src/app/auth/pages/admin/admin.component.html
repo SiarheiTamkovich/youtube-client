@@ -1,0 +1,88 @@
+<div class="admin-page">
+  <h2>Create New Card</h2>
+  <form [formGroup]="createCardForm" (ngSubmit)="submit()">
+
+    <div class="input-container">
+      <label>Title</label>
+      <input type="text" formControlName="title"/>
+      <div
+        class="alert-error"
+        *ngIf="!title?.valid && (title?.dirty || title?.touched)">
+        <div [hidden]="!title?.errors?.['required']">
+          Please enter a title
+        </div>
+        <div [hidden]="!title?.errors?.['minlength']">
+          The title is too short
+        </div>
+        <div [hidden]="!title?.errors?.['maxlength']">
+          The title is too long
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Description</label>
+      <input type="text" formControlName="description"/>
+      <div
+        class="alert-error"
+        *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+        <div [hidden]="!description?.errors?.['required']">
+          Please enter a description
+        </div>
+        <div [hidden]="!description?.errors?.['maxlength']">
+          The description is too long
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>img</label>
+      <input type="text" formControlName="linkImage"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkImage?.valid && (linkImage?.dirty || linkImage?.touched)">
+        <div [hidden]="!linkImage?.errors?.['required']">
+          Please enter a link to the image
+        </div>
+        <div [hidden]="!linkImage?.errors?.['pattern']">
+          The image link is invalid
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Link video</label>
+      <input type="text" formControlName="linkVideo"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkVideo?.valid && (linkVideo?.dirty || linkVideo?.touched)">
+        <div [hidden]="!linkVideo?.errors?.['required']">
+          Please enter a link to the video
+        </div>
+        <div [hidden]="!linkVideo?.errors?.['pattern']">
+          The video link is invalid
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Creation date</label>
+      <input #date type="date" formControlName="creationDate"/>
+      <div
+        class="alert-error"
+        *ngIf="!creationDate?.valid && (creationDate?.dirty || creationDate?.touched)">
+        <div [hidden]="!creationDate?.errors?.['required']">
+          Please enter a creation date
+        </div>
+        <div [hidden]="!creationDate?.errors?.['isDataFuture']">
+          The date is invalid
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
+    </div>
+    
+  </form>
+</div>
