@@ -1,0 +1,12 @@
+<div class="header-search">
+  <img src="../../assets/img/icon/play.svg" alt="play">
+  <input #Item type="search" placeholder=" What are you want to find out?">
+  <button (click)="inputValueEmit(Item.value)" class="search-input-btn">search</button>
+  <button (click)="btnClickEmit()" class="search-setting-btn">
+    <img src="../../assets/img/icon/search_settings.svg" alt="setting">
+  </button>
+</div>
+<div class="header-login">
+  <p (click)="toggleLogOut()">LogOut</p>
+  <img src="../../../../assets/img/icon/login2.svg" alt="login">
+</div>

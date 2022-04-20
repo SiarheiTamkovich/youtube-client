@@ -1,0 +1,13 @@
+<app-header
+  (btnClick)="displayFilters()"
+  (searchParams)="getSearchParams($event)"
+></app-header>
+
+<app-filters
+  *ngIf="isFiltersON"
+  (clickSortByDate)="sendEventClickSortByData()"
+  (clickSortByViews)="sendEventClickSortByViews()"
+  (inputFilterByString)="sendInputFilterByString($event)"
+></app-filters>
+
+<router-outlet></router-outlet>

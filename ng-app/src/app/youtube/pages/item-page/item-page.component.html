@@ -1,0 +1,39 @@
+<ng-container *ngIf="!spinner">
+  <div class="container">
+    <button (click)="goBack()">
+      <img src="../../../../assets/img/icon/left_arrow.svg" alt="left_arrow">
+    </button>
+    <div class="poster">
+      <img src="{{video.snippet.thumbnails.standard.url}}" alt="screen-image">
+    </div>
+    <div
+      appGetColorFromDate
+      class="video-card"
+      id="{{video.id}}"
+      [attr.data-date-publish]="video.snippet.publishedAt"
+      >
+      <div class="card-header">
+        <h1>{{video.snippet.title}}</h1>
+        <p>{{video.snippet.publishedAt | date: 'EEEE, MMMM d, y'}}</p>
+      </div>
+      <div class="card-description">
+        <h3>Description:</h3>
+        <p>{{video.snippet.localized.description}}</p>
+      </div>
+      <div class="card-statistic">
+          <img src="../../../assets/img/icon/viewed.svg" alt="viewed">
+          <span>{{video.statistics.viewCount}}</span>
+          <img src="../../../assets/img/icon/liked.svg" alt="liked">
+          <span>{{video.statistics.likeCount}}</span>
+          <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
+          <span>{{video.statistics.dislikeCount}}</span>
+          <img src="../../../assets/img/icon/comments.svg" alt="comments">
+          <span>{{video.statistics.commentCount}}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="spinner">
+  <app-spinner></app-spinner>
+</ng-container>

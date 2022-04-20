@@ -1,0 +1,15 @@
+<div class="login-page">
+  <h2>Login</h2>
+  <form>
+    <label>login (admin123)</label>
+    <input id="username" type="text" [formControl]="username"/>
+  </form>
+  <form>
+    <label>password (admin123)</label>
+    <input type="password" [formControl]="password" />
+  </form>
+  <div>
+    <a href="home/auth/register">Registration</a>
+    <button class="btn-login" (click)="login()">Login</button>
+  </div>
+</div>
