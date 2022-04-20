@@ -25,7 +25,7 @@
     width: 100%;
 
     .input-container {
-      
+
       label {
         font-size: 11px;
         color: $color-font-grey;
@@ -44,13 +44,9 @@
         }
       }
 
-      div {
+      .alert-error {
         display: block;
         line-height: 14px;
-
-        div[hidden] {
-          display: none;
-        }
       }
     }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map, pipe, Subject } from 'rxjs';
+import { SortModel } from 'src/app/youtube/models/sort.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { YoutubeHttpService } from '../../services/youtube-http.service';
 
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public isSearchON: boolean = false;
   public inputValue: string;
   public searchString$: Subject<string> = new Subject();
+  public sortParams: SortModel;
 
   ngOnInit(): void {
     this.searchString$.pipe(
@@ -30,9 +32,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     .subscribe(value => {
       this.getSearchVideo(value);
     });
+
+    this.youtubeService.sort$.subscribe(value => {
+      this.sortParams = value;
+  //    console.log(value)
+    })
   }
   ngOnDestroy(): void {
     this.searchString$.unsubscribe();
+    this.youtubeService.sort$.unsubscribe();
   }
 
   public displayFilters(): void {
@@ -50,29 +58,29 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public sendEventClickSortByData(): void {
-    this.youtubeService.sort.byDate = 'no';
-    this.youtubeService.sort.counterDate++;
-    if (this.youtubeService.sort.counterDate === 1) this.youtubeService.sort.byDate = 'incr';
-    if (this.youtubeService.sort.counterDate === 2) {
-      this.youtubeService.sort.byDate = 'decr';
-      this.youtubeService.sort.counterDate = 0
+    this.sortParams.byViews = 'no';
+    this.sortParams.counterDate++;
+    if (this.sortParams.counterDate === 1) this.sortParams.byDate = 'incr';
+    if (this.sortParams.counterDate === 2) {
+      this.sortParams.byDate = 'decr';
+      this.sortParams.counterDate = 0
     };
-    this.youtubeService.setDataSort$(this.youtubeService.sort);
+    this.youtubeService.sort$.next(this.sortParams);
   }
 
   public sendEventClickSortByViews(): void {
-    this.youtubeService.sort.byDate = 'no';
-    this.youtubeService.sort.counterViews++;
-    if (this.youtubeService.sort.counterViews === 1) this.youtubeService.sort.byViews = 'incr';
-    if (this.youtubeService.sort.counterViews === 2) {
-      this.youtubeService.sort.byViews = 'decr';
-      this.youtubeService.sort.counterViews = 0
+    this.sortParams.byDate = 'no';
+    this.sortParams.counterViews++;
+    if (this.sortParams.counterViews === 1) this.sortParams.byViews = 'incr';
+    if (this.sortParams.counterViews === 2) {
+      this.sortParams.byViews = 'decr';
+      this.sortParams.counterViews = 0
     };
-    this.youtubeService.setDataSort$(this.youtubeService.sort);
+    this.youtubeService.sort$.next(this.sortParams);
   }
 
   public sendInputFilterByString(value: string): void {
-    this.youtubeService.sort.inputFilterValue = value;
+    this.sortParams.inputFilterValue = value;
   }
 }
 

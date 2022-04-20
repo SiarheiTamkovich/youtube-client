@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ValidatorErrorsComponent } from './components/validator/validator-errors/validator-errors.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    AdminComponent
+    AdminComponent,
+    ValidatorErrorsComponent
   ],
   imports: [
     CommonModule,

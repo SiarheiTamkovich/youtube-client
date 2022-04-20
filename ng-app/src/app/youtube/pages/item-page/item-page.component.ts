@@ -30,7 +30,7 @@ export class ItemPageComponent implements OnInit {
       .getVideoInfoById$( this.itemId).subscribe((data: ResponseItemInfoModel) => {
         this.video = data;
         this.spinner = false;
-        console.log(this.video)
+//        console.log(this.video)
     });
   }
   ngOnDestroy(): void {

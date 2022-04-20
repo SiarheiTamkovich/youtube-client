@@ -8,15 +8,18 @@
       <div
         class="alert-error"
         *ngIf="!title?.valid && (title?.dirty || title?.touched)">
-        <div [hidden]="!title?.errors?.['required']">
-          Please enter a title
-        </div>
-        <div [hidden]="!title?.errors?.['minlength']">
-          The title is too short
-        </div>
-        <div [hidden]="!title?.errors?.['maxlength']">
-          The title is too long
-        </div>
+
+        <app-validator-errors *ngIf="title?.errors?.['required']"
+          message="Please enter a title">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="title?.errors?.['minlength']"
+          message="The title is too short">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="title?.errors?.['maxlength']"
+          message="The title is too long">
+        </app-validator-errors>
       </div>
     </div>
 
@@ -26,14 +29,17 @@
       <div
         class="alert-error"
         *ngIf="!description?.valid && (description?.dirty || description?.touched)">
-        <div [hidden]="!description?.errors?.['required']">
-          Please enter a description
-        </div>
-        <div [hidden]="!description?.errors?.['maxlength']">
-          The description is too long
-        </div>
+
+        <app-validator-errors *ngIf="description?.errors?.['required']"
+          message="Please enter a description">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="description?.errors?.['maxlength']"
+          message="The description is too long">
+        </app-validator-errors>
       </div>
     </div>
+
 
     <div class="input-container">
       <label>img</label>
@@ -41,12 +47,14 @@
       <div
         class="alert-error"
         *ngIf="!linkImage?.valid && (linkImage?.dirty || linkImage?.touched)">
-        <div [hidden]="!linkImage?.errors?.['required']">
-          Please enter a link to the image
-        </div>
-        <div [hidden]="!linkImage?.errors?.['pattern']">
-          The image link is invalid
-        </div>
+
+        <app-validator-errors *ngIf="linkImage?.errors?.['required']"
+          message="Please enter a link to the image">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="linkImage?.errors?.['pattern']"
+          message="The image link is invalid">
+        </app-validator-errors>
       </div>
     </div>
 
@@ -56,12 +64,14 @@
       <div
         class="alert-error"
         *ngIf="!linkVideo?.valid && (linkVideo?.dirty || linkVideo?.touched)">
-        <div [hidden]="!linkVideo?.errors?.['required']">
-          Please enter a link to the video
-        </div>
-        <div [hidden]="!linkVideo?.errors?.['pattern']">
-          The video link is invalid
-        </div>
+        
+        <app-validator-errors *ngIf="linkVideo?.errors?.['required']"
+          message="Please enter a link to the video">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="linkVideo?.errors?.['pattern']"
+          message="The video link is invalid">
+        </app-validator-errors>
       </div>
     </div>
 
@@ -71,18 +81,21 @@
       <div
         class="alert-error"
         *ngIf="!creationDate?.valid && (creationDate?.dirty || creationDate?.touched)">
-        <div [hidden]="!creationDate?.errors?.['required']">
-          Please enter a creation date
-        </div>
-        <div [hidden]="!creationDate?.errors?.['isDataFuture']">
-          The date is invalid
-        </div>
+
+        <app-validator-errors *ngIf="creationDate?.errors?.['required']"
+          message="Please enter a creation date">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="creationDate?.errors?.['isDataFuture']"
+          message="The date is invalid">
+        </app-validator-errors>
       </div>
     </div>
 
     <div class="btn-container">
       <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
     </div>
-    
   </form>
 </div>
+
+

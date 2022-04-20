@@ -7,9 +7,6 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanLoad, CanActivate {
-  split(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
 
   public urlFrom: string | undefined = '';
 

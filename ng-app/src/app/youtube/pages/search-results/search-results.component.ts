@@ -20,7 +20,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   private searchString: string;
 
   private dataSubscriptionFilm$: Subscription;
-  private dataSubscriptionSort$: Subscription;
 
   constructor(
     private youtubeHttpService: YoutubeHttpService,
@@ -69,28 +68,28 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
           .getVideo$(this.searchString).subscribe((data: SearchResponseModel) => {
             this.videoResponse = data;
             this.videoItems = data.items;
+            this.videoItems.map(item => {
+              if (item.snippet.title.length > 60) {
+                item.snippet.title = item.snippet.title.substring(0, 60) + '...';
+              }
+            });
             this.sortItems();
             //console.log(this.videoItems[0]);
         });
     })
 
-    this.dataSubscriptionSort$ = this.srv.getDataSort$()
-      .subscribe((dataSort: SortModel) => {
-        this.sortParams = dataSort;
-        //console.log(dataSort);
-      });
+    this.srv.sort$.subscribe((value: SortModel) => {
+        this.sortParams = value;
+        // console.log(value);
+        this.sortItems();
+    });
   }
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
-    this.dataSubscriptionSort$.unsubscribe();
-  }
-  ngDoCheck(){
-    this.sortItems();
-    //console.log(this.sortParams);
+    this.srv.sort$.unsubscribe();
   }
 
   public viewItem(id: string): void {
     this.router.navigate([`home/video/${id}`])
   }
-
 }

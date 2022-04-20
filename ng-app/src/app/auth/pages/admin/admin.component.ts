@@ -7,6 +7,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { urlValidatorRegex } from '../../components/validator/pattern-regex';
 
 @Component({
   selector: 'app-admin',
@@ -20,8 +21,6 @@ export class AdminComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-
-    const urlValidatorRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 
     this.createCardForm = this.formBuilder.group({
       title: ['', [
