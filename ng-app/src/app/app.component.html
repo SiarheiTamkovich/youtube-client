@@ -1,3 +1,19 @@
-<app-header></app-header>
-<app-filters></app-filters>
-<app-search-results></app-search-results>
+<app-header
+  (btnClick)="displayFilters()"
+  (searchParams)="getSearchParams($event)"
+>
+</app-header>
+
+<app-filters
+  *ngIf="!isFiltersON"
+  (clickSortByDate)="sendEventClickSortByData()"
+  (clickSortByViews)="sendEventClickSortByViews()"
+  (inputFilterByString)="sendInputFilterByString($event)"
+>
+</app-filters>
+
+<app-search-results
+  [sort]="sort"
+  *ngIf="!isSearchON"
+>
+</app-search-results>

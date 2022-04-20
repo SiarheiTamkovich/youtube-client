@@ -12,7 +12,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  public getData(): Observable<SearchResponseModel> {
+  public getData$(): Observable<SearchResponseModel> {
     // return this.http.get<SearchResponseModel>(this.url);
     return this.http.get<SearchResponseModel>(this.url).pipe(
       map((data: SearchResponseModel) => data),

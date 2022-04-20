@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
+  @Output() public clickSortByDate: EventEmitter<boolean> = new EventEmitter;
+  @Output() public clickSortByViews: EventEmitter<boolean> = new EventEmitter;
+  @Output() public inputFilterByString: EventEmitter<string> = new EventEmitter;
+
   constructor() { }
 
-  ngOnInit(): void {
+  public clickSortByDateEmit(): void {
+    this.clickSortByDate.emit();
   }
 
+  public clickSortByViewsEmit(): void {
+    this.clickSortByViews.emit();
+  }
+
+  public inputFilterByStringEmit(value: string): void {
+    this.inputFilterByString.emit(value);
+  }
+
+  ngOnInit(): void {}
 }
