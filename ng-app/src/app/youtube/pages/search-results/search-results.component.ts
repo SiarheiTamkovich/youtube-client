@@ -28,32 +28,32 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {}
 
-  public sortItems() {
-  if (this.sortParams.byDate === 'incr') {
-    this.videoItems.sort(
-      (a, b) => new Date(b.snippet.publishedAt).getTime() -
-      new Date(a.snippet.publishedAt).getTime()
-    );
+  public sortItems(): void {
+    this.sortByField(this.sortParams.byDate);
+    this.sortByViews(this.sortParams.byViews);
   }
 
-  if (this.sortParams.byDate === 'decr') {
-    this.videoItems.sort(
-      (a, b) => new Date(a.snippet.publishedAt).getTime() -
-      new Date(b.snippet.publishedAt).getTime()
-    );
-  }
-
-  if (this.sortParams.byViews === 'incr') {
-      this.videoItems.sort(
-        (a, b) => Number(a.statistics.viewCount) -
-        Number(b.statistics.viewCount)
+  private sortByField(sortDirection: string): void {
+    if (sortDirection === 'incr'){
+      this.videoItems.sort((a, b) =>
+        a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1
       );
     }
-
-  if (this.sortParams.byViews === 'decr') {
-      this.videoItems.sort(
-        (a, b) => Number(b.statistics.viewCount) -
-        Number(a.statistics.viewCount)
+    if (sortDirection === 'decr') {
+      this.videoItems.sort((a, b) =>
+        a.snippet.publishedAt > b.snippet.publishedAt ? 1 : -1
+      );
+    }
+  }
+  private sortByViews(sortDirection: string): void {
+    if (sortDirection === 'incr') {
+      this.videoItems.sort((a, b) =>
+        Number(a.statistics.viewCount) > Number(b.statistics.viewCount) ? 1 : -1
+      );
+    }
+  if (sortDirection === 'decr') {
+      this.videoItems.sort((a, b) =>
+        Number(a.statistics.viewCount) < Number(b.statistics.viewCount) ? 1 : -1
       );
     }
   }
