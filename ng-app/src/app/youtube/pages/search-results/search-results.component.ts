@@ -29,31 +29,19 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ) {}
 
   public sortItems(): void {
-    this.sortByField(this.sortParams.byDate);
-    this.sortByViews(this.sortParams.byViews);
+    this.sortByField(this.sortParams.byDate, 'snippet', 'publishTime');
+    this.sortByField(this.sortParams.byViews, 'statistics', 'viewCount');
   }
 
-  private sortByField(sortDirection: string): void {
-    if (sortDirection === 'incr'){
-      this.videoItems.sort((a, b) =>
-        a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1
+  private sortByField(sortDirection: string, category: string, field: string): void{
+    if (sortDirection === 'incr') {
+      this.videoItems.sort((a: any, b: any) =>
+        Number(a[category][field]) < Number((b[category])[field]) ? 1 : -1
       );
     }
     if (sortDirection === 'decr') {
-      this.videoItems.sort((a, b) =>
-        a.snippet.publishedAt > b.snippet.publishedAt ? 1 : -1
-      );
-    }
-  }
-  private sortByViews(sortDirection: string): void {
-    if (sortDirection === 'incr') {
-      this.videoItems.sort((a, b) =>
-        Number(a.statistics.viewCount) > Number(b.statistics.viewCount) ? 1 : -1
-      );
-    }
-  if (sortDirection === 'decr') {
-      this.videoItems.sort((a, b) =>
-        Number(a.statistics.viewCount) < Number(b.statistics.viewCount) ? 1 : -1
+      this.videoItems.sort((a: any, b: any) =>
+        Number(a[category][field]) > Number(b[category][field]) ? 1 : -1
       );
     }
   }
@@ -70,18 +58,18 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
             this.videoItems = data.items;
             this.videoItems.map(item => {
               if (item.snippet.title.length > 60) {
-                item.snippet.title = item.snippet.title.substring(0, 60) + '...';
+                item.snippet.title = item.snippet.title.substring(0, 60) + '...'
               }
+              item.snippet.publishTime = String(new Date(item.snippet.publishTime).getTime());
             });
             this.sortItems();
-            //console.log(this.videoItems[0]);
         });
     })
 
     this.srv.sort$.subscribe((value: SortModel) => {
-        this.sortParams = value;
-        // console.log(value);
-        this.sortItems();
+      this.sortParams = value;
+      this.sortItems();
+      //console.log(value);
     });
   }
   ngOnDestroy(): void {
@@ -93,3 +81,4 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.router.navigate([`home/video/${id}`])
   }
 }
+

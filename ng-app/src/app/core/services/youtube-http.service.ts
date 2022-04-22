@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, EMPTY, map, Observable, retry } from 'rxjs';
-import { ResponseItemInfoModel, SearchItemModel, VideoInfo } from 'src/app/youtube/models/search-item.model';
+import { ResponseItemInfoModel, SearchItemModel } from 'src/app/youtube/models/search-item.model';
 import { SearchResponseModel } from 'src/app/youtube/models/search-response.model';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class YoutubeHttpService {
 
   private readonly SEARCH_URL = 'search'; //'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=10&q=react';
   private readonly VIDEO_INFO_URL = 'videos'; // 'https://www.googleapis.com/youtube/v3/videos?&part=snippet,statistics';
-  private readonly LIMIT = 20;
+  private readonly LIMIT = 10;
 
   constructor(
     private http: HttpClient,
@@ -60,7 +60,7 @@ export class YoutubeHttpService {
       .pipe(
         map((data: any) => {
           const response = data.items[0];
-//          console.log(response);
+          //console.log(response);
           return response;
         })
       );

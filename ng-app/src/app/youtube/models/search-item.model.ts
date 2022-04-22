@@ -6,6 +6,7 @@ export interface SearchItemModel {
   }
   snippet: {
     publishedAt: string,
+    publishTime: string,
     channelId: string,
     title: string,
     description: string,
