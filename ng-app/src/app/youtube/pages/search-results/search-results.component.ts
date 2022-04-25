@@ -33,17 +33,12 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.sortByField(this.sortParams.byViews, 'statistics', 'viewCount');
   }
 
-  private sortByField(sortDirection: string, category: string, field: string): void{
-    if (sortDirection === 'incr') {
-      this.videoItems.sort((a: any, b: any) =>
-        Number(a[category][field]) < Number((b[category])[field]) ? 1 : -1
-      );
-    }
-    if (sortDirection === 'decr') {
-      this.videoItems.sort((a: any, b: any) =>
-        Number(a[category][field]) > Number(b[category][field]) ? 1 : -1
-      );
-    }
+  private sortByField(sortDirection: string, category: string, field: string): void {
+    if (sortDirection === 'no') return;
+    this.videoItems.sort((a: any, b: any) => (
+      sortDirection === 'incr' ? Number(a[category][field]) - Number(b[category][field]) :
+      Number(b[category][field]) - Number(a[category][field])
+    ))
   }
 
   ngOnInit(): void {
@@ -62,14 +57,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
               }
               item.snippet.publishTime = String(new Date(item.snippet.publishTime).getTime());
             });
-            this.sortItems();
         });
     })
 
     this.srv.sort$.subscribe((value: SortModel) => {
       this.sortParams = value;
       this.sortItems();
-      //console.log(value);
+//      console.log(value);
     });
   }
   ngOnDestroy(): void {
