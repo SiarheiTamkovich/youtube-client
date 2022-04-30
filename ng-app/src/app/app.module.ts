@@ -25,6 +25,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ApiInterceptor } from './interceptors/api.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
