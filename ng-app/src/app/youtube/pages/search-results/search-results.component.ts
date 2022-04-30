@@ -6,6 +6,7 @@ import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SortDirections } from 'src/app/shared/constants/setting';
 
 @Component({
   selector: 'app-search-results',
@@ -34,11 +35,12 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   private sortByField(sortDirection: string, category: string, field: string): void {
-    if (sortDirection === 'no') return;
-    this.videoItems.sort((a: any, b: any) => (
-      sortDirection === 'incr' ? Number(a[category][field]) - Number(b[category][field]) :
-      Number(b[category][field]) - Number(a[category][field])
-    ))
+    if (sortDirection === SortDirections.No) return;
+    this.videoItems.sort((a: any, b: any) => {
+      const sortA = Number(a[category][field]);
+      const sortB = Number(b[category][field]);
+      return sortDirection === SortDirections.Increase ? sortA - sortB : sortB - sortA;
+    })
   }
 
   ngOnInit(): void {

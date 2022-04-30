@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { SortDirections } from 'src/app/shared/constants/setting';
 import { SortModel } from '../models/sort.model';
 
 @Injectable({

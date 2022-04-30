@@ -48,7 +48,7 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     MatIconModule, MatProgressSpinnerModule,
-    ],
+  ],
   providers: [
     SearchService,
     YoutubeService,

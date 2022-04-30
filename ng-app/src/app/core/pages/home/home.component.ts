@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged, map, pipe, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Observable, Subject } from 'rxjs';
+import { SortDirections } from 'src/app/shared/constants/setting';
+import { SearchItemModel } from 'src/app/youtube/models/search-item.model';
 import { SortModel } from 'src/app/youtube/models/sort.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { YoutubeHttpService } from '../../services/youtube-http.service';
@@ -11,6 +13,8 @@ import { YoutubeHttpService } from '../../services/youtube-http.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
+  videos: Observable<SearchItemModel[]>;
 
   constructor(
     private router: Router,
@@ -25,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public sortParams: SortModel;
 
   ngOnInit(): void {
+
     this.searchString$.pipe(
       debounceTime(500),
       distinctUntilChanged(),
@@ -58,22 +63,23 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public sendEventClickSortByData(): void {
-    this.sortParams.byViews = 'no';
+    this.sortParams.byViews = SortDirections.No;
     this.sortParams.counterDate++;
-    if (this.sortParams.counterDate === 1) this.sortParams.byDate = 'incr';
+    if (this.sortParams.counterDate === 1) this.sortParams.byDate = SortDirections.Increase;
     if (this.sortParams.counterDate === 2) {
-      this.sortParams.byDate = 'decr';
+      this.sortParams.byDate = SortDirections.Decrease;
       this.sortParams.counterDate = 0
     };
     this.youtubeService.sort$.next(this.sortParams);
   }
 
   public sendEventClickSortByViews(): void {
-    this.sortParams.byDate = 'no';
+    this.sortParams.byDate = SortDirections.No;
     this.sortParams.counterViews++;
-    if (this.sortParams.counterViews === 1) this.sortParams.byViews = 'incr';
+    if (this.sortParams.counterViews === 1) this.sortParams.byViews = SortDirections.Increase;
+
     if (this.sortParams.counterViews === 2) {
-      this.sortParams.byViews = 'decr';
+      this.sortParams.byViews = SortDirections.Decrease;
       this.sortParams.counterViews = 0
     };
     this.youtubeService.sort$.next(this.sortParams);
