@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, of, switchMapTo } from 'rxjs';
+import { catchError, map, of, switchMap, switchMapTo } from 'rxjs';
 import { YoutubeHttpService } from "../../services/youtube-http.service";
 
 import * as VideoActions from '../actions/youtube.actions';
@@ -18,7 +18,7 @@ export class VideoEffects {
         switchMapTo(
           this.videoService.getVideo$('war').pipe(
             map(response => VideoActions.FetchVideoSuccess({ response })),
-            catchError(() => of(VideoActions.FetchVideoFailed()))
+            catchError((error) =>of(VideoActions.FetchVideoFailed({ error })))
           )
         ),
       )

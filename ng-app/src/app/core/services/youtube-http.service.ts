@@ -42,7 +42,7 @@ export class YoutubeHttpService {
       }),
       catchError(error => {
         console.log('[ERROR]', error);
-        return EMPTY;
+        return error;
       })
     )
 //    result.subscribe((data) => console.log(data))

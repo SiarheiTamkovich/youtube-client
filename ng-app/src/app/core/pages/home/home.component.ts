@@ -1,14 +1,15 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { debounceTime, distinctUntilChanged, Observable, Subject } from 'rxjs';
 import { SortDirections } from 'src/app/shared/constants/setting';
-import { SearchItemModel } from 'src/app/youtube/models/search-item.model';
+import { SearchResponseModel } from 'src/app/youtube/models/search-response.model';
 import { SortModel } from 'src/app/youtube/models/sort.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { YoutubeHttpService } from '../../services/youtube-http.service';
 
 import * as VideoAction from '../../store/actions/youtube.actions';
+import { selectError, selectVideo, VideoState } from '../../store/reducers/youtube.reducer';
 
 @Component({
   selector: 'app-home',
@@ -17,13 +18,14 @@ import * as VideoAction from '../../store/actions/youtube.actions';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  videos: Observable<SearchItemModel[]>;
+  public selectVideos$: Observable<SearchResponseModel | null> = this.store.pipe(select(selectVideo));
+  public selectError$: Observable<Error | null> =  this.store.pipe(select(selectError));
 
   constructor(
     private router: Router,
     private youtubeService: YoutubeService,
     private youtubeHttpService: YoutubeHttpService,
-    private store: Store,
+    private store: Store<VideoState>,
     ) {}
 
   public isFiltersON: boolean = false;
@@ -35,7 +37,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.store.dispatch(VideoAction.FetchVideo());
-    console.log(this.store)
+    this.selectVideos$.subscribe(data => console.log(data))
+    this.selectError$.subscribe(error => console.log(error))
 
     this.searchString$.pipe(
       debounceTime(500),
