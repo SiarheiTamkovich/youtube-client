@@ -26,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { CoreModule } from './core/core.module';
+import { StartComponent } from './youtube/pages/start-page/start.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CoreModule } from './core/core.module';
     HomeComponent,
     ProgressComponent,
     SpinnerComponent,
+    StartComponent,
   ],
   imports: [
     CommonModule,

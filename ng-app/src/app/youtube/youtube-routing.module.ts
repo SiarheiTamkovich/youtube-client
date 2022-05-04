@@ -4,12 +4,17 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { HomeComponent } from '../core/pages/home/home.component';
 import { ItemPageComponent } from './pages/item-page/item-page.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { StartComponent } from './pages/start-page/start.component';
 
 const routes: Routes = [
   { path: '',
     component: HomeComponent,
   //  canActivate: [AuthGuard],
     children: [
+      {
+        path: 'start',
+        component: StartComponent,
+      },
       {
         path: 'search',
         component: SearchResultsComponent,

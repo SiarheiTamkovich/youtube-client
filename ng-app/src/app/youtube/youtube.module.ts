@@ -3,12 +3,9 @@ import { CommonModule } from '@angular/common';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { StartComponent } from './pages/start/start.component';
 
 @NgModule({
-  declarations: [ 
-    StartComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     YoutubeRoutingModule,

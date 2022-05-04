@@ -18,7 +18,6 @@ import { selectError, selectVideo, VideoState } from '../../store/reducers/youtu
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  public selectVideos$: Observable<SearchResponseModel | null> = this.store.pipe(select(selectVideo));
   public selectError$: Observable<Error | null> =  this.store.pipe(select(selectError));
 
   constructor(
@@ -35,10 +34,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   public sortParams: SortModel;
 
   ngOnInit(): void {
-
+  
     this.store.dispatch(VideoAction.FetchVideo());
-    this.selectVideos$.subscribe(data => console.log(data))
-    this.selectError$.subscribe(error => console.log(error))
+//    this.selectError$.subscribe(error => console.log(error))
 
     this.searchString$.pipe(
       debounceTime(500),
@@ -52,6 +50,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.sortParams = value;
   //    console.log(value)
     })
+
+    this.router.navigate(['home/start']);
   }
   ngOnDestroy(): void {
     this.searchString$.unsubscribe();

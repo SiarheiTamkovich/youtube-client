@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, EMPTY, map, Observable, retry } from 'rxjs';
+import { catchError, map, Observable, of, retry } from 'rxjs';
 import { ResponseItemInfoModel, SearchItemModel } from 'src/app/youtube/models/search-item.model';
 import { SearchResponseModel } from 'src/app/youtube/models/search-response.model';
 
@@ -13,6 +13,8 @@ export class YoutubeHttpService {
   private readonly SEARCH_URL = 'search'; //'https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=10&q=react';
   private readonly VIDEO_INFO_URL = 'videos'; // 'https://www.googleapis.com/youtube/v3/videos?&part=snippet,statistics';
   private readonly LIMIT = 10;
+
+  private isStatHave: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -45,8 +47,12 @@ export class YoutubeHttpService {
         return error;
       })
     )
-//    result.subscribe((data) => console.log(data))
-    return result;
+    result.subscribe((data) => {
+      if(!!(data as SearchResponseModel).items[0].statistics) {
+        this.isStatHave = true;
+      }
+    })
+    return result
   }
 
   public getVideoInfoById$(id: string): Observable<ResponseItemInfoModel> {
@@ -66,7 +72,3 @@ export class YoutubeHttpService {
       );
   }
 }
-
-
-
-
