@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchResponseModel } from '../../models/search-response.model';
-import { SearchService } from '../../../core/services/search.service';
+import { YoutubeHttpService } from 'src/app/core/services/youtube-http.service';
 import { YoutubeService } from '../../services/youtube.service';
 import { Subscription } from 'rxjs';
 import { SortModel } from '../../models/sort.model';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { SortDirections } from 'src/app/shared/constants/setting';
 
 @Component({
   selector: 'app-search-results',
@@ -17,72 +17,64 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   public videoResponse: SearchResponseModel;
   public videoItems: SearchItemModel[] = [];
-  public sortNew: SortModel;
+  public sortParams: SortModel;
+  private searchString: string;
 
   private dataSubscriptionFilm$: Subscription;
-  private dataSubscriptionSort$: Subscription;
 
   constructor(
-    private searchService: SearchService,
+    private youtubeHttpService: YoutubeHttpService,
     public srv: YoutubeService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
-  public sortItems() {
-
-  if (this.sortNew.byDate === 'incr') {
-    this.videoItems.sort(
-      (a, b) => new Date(b.snippet.publishedAt).getTime() -
-      new Date(a.snippet.publishedAt).getTime()
-    );
+  public sortItems(): void {
+    this.sortByField(this.sortParams.byDate, 'snippet', 'publishTime');
+    this.sortByField(this.sortParams.byViews, 'statistics', 'viewCount');
   }
 
-  if (this.sortNew.byDate === 'decr') {
-    this.videoItems.sort(
-      (a, b) => new Date(a.snippet.publishedAt).getTime() -
-      new Date(b.snippet.publishedAt).getTime()
-    );
-  }
-
-  if (this.sortNew.byViews === 'incr') {
-      this.videoItems.sort(
-        (a, b) => Number(a.statistics.viewCount) -
-        Number(b.statistics.viewCount)
-      );
-    }
-
-  if (this.sortNew.byViews === 'decr') {
-      this.videoItems.sort(
-        (a, b) => Number(b.statistics.viewCount) -
-        Number(a.statistics.viewCount)
-      );
-    }
+  private sortByField(sortDirection: string, category: string, field: string): void {
+    if (sortDirection === SortDirections.No) return;
+    this.videoItems.sort((a: any, b: any) => {
+      const sortA = Number(a[category][field]);
+      const sortB = Number(b[category][field]);
+      return sortDirection === SortDirections.Increase ? sortA - sortB : sortB - sortA;
+    })
   }
 
   ngOnInit(): void {
-    this.dataSubscriptionFilm$ = this.searchService.getData$().subscribe((data: SearchResponseModel) => {
-      this.videoResponse = data;
-      this.videoItems = data.items;
+
+    this.route.queryParams.subscribe((params) => {
+
+      this.searchString = params['order'];
+
+      this.dataSubscriptionFilm$ = this.youtubeHttpService
+          .getVideo$(this.searchString).subscribe((data: SearchResponseModel) => {
+            this.videoResponse = data;
+            this.videoItems = data.items;
+            this.videoItems.map(item => {
+              if (item.snippet.title.length > 60) {
+                item.snippet.title = item.snippet.title.substring(0, 60) + '...'
+              }
+              item.snippet.publishTime = String(new Date(item.snippet.publishTime).getTime());
+            });
+        });
+    })
+
+    this.srv.sort$.subscribe((value: SortModel) => {
+      this.sortParams = value;
       this.sortItems();
-//      console.log(this.videoItems);
-    });
-    this.dataSubscriptionSort$ = this.srv.getDataSort$().subscribe((dataSort: SortModel) => {
-      this.sortNew = dataSort;
+//      console.log(value);
     });
   }
-
-  ngDoCheck(){
-    this.sortItems();
-//    console.log(this.sortNew);
-  }
-
   ngOnDestroy(): void {
     this.dataSubscriptionFilm$.unsubscribe();
-    this.dataSubscriptionSort$.unsubscribe();
+    this.srv.sort$.unsubscribe();
   }
 
   public viewItem(id: string): void {
     this.router.navigate([`home/video/${id}`])
   }
-
 }
+

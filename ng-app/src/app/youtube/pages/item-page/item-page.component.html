@@ -4,7 +4,7 @@
       <img src="../../../../assets/img/icon/left_arrow.svg" alt="left_arrow">
     </button>
     <div class="poster">
-      <img src="{{video.snippet.thumbnails.standard.url}}" alt="screen-image">
+      <img src="{{video.snippet.thumbnails.high.url}}" alt="screen-image">
     </div>
     <div
       appGetColorFromDate
@@ -18,17 +18,17 @@
       </div>
       <div class="card-description">
         <h3>Description:</h3>
-        <p>{{video.snippet.localized.description}}</p>
+        <p>{{video.snippet.description}}</p>
       </div>
       <div class="card-statistic">
           <img src="../../../assets/img/icon/viewed.svg" alt="viewed">
-          <span>{{video.statistics.viewCount}}</span>
+          <span>{{video.statistics?.viewCount}}</span>
           <img src="../../../assets/img/icon/liked.svg" alt="liked">
-          <span>{{video.statistics.likeCount}}</span>
+          <span>{{video.statistics?.likeCount}}</span>
           <img src="../../../assets/img/icon/dislike.svg" alt="dislike">
-          <span>{{video.statistics.dislikeCount}}</span>
+          <span>{{video.statistics?.favoriteCount}}</span>
           <img src="../../../assets/img/icon/comments.svg" alt="comments">
-          <span>{{video.statistics.commentCount}}</span>
+          <span>{{video.statistics?.commentCount}}</span>
       </div>
     </div>
   </div>

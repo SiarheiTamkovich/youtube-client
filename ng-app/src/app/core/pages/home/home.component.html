@@ -10,4 +10,8 @@
   (inputFilterByString)="sendInputFilterByString($event)"
 ></app-filters>
 
+<p *ngIf="(selectError$ | async)">Error:{{selectError$ | async}}</p>
+
 <router-outlet></router-outlet>
+
+

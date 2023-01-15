@@ -9,8 +9,9 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 })
 export class SpinnerComponent {
 
-  color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'indeterminate';
-  value = 50;
+  public color: ThemePalette = 'primary';
+  public mode: ProgressSpinnerMode = 'indeterminate';
+  public value = 50;
+  
   constructor() { }
 }

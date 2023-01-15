@@ -1,0 +1,101 @@
+<div class="admin-page">
+  <h2>Create New Card</h2>
+  <form [formGroup]="createCardForm" (ngSubmit)="submit()">
+
+    <div class="input-container">
+      <label>Title</label>
+      <input type="text" formControlName="title"/>
+      <div
+        class="alert-error"
+        *ngIf="!title?.valid && (title?.dirty || title?.touched)">
+
+        <app-validator-errors *ngIf="title?.errors?.['required']"
+          message="Please enter a title">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="title?.errors?.['minlength']"
+          message="The title is too short">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="title?.errors?.['maxlength']"
+          message="The title is too long">
+        </app-validator-errors>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Description</label>
+      <input type="text" formControlName="description"/>
+      <div
+        class="alert-error"
+        *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+
+        <app-validator-errors *ngIf="description?.errors?.['required']"
+          message="Please enter a description">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="description?.errors?.['maxlength']"
+          message="The description is too long">
+        </app-validator-errors>
+      </div>
+    </div>
+
+
+    <div class="input-container">
+      <label>img</label>
+      <input type="text" formControlName="linkImage"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkImage?.valid && (linkImage?.dirty || linkImage?.touched)">
+
+        <app-validator-errors *ngIf="linkImage?.errors?.['required']"
+          message="Please enter a link to the image">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="linkImage?.errors?.['pattern']"
+          message="The image link is invalid">
+        </app-validator-errors>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Link video</label>
+      <input type="text" formControlName="linkVideo"/>
+      <div
+        class="alert-error"
+        *ngIf="!linkVideo?.valid && (linkVideo?.dirty || linkVideo?.touched)">
+        
+        <app-validator-errors *ngIf="linkVideo?.errors?.['required']"
+          message="Please enter a link to the video">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="linkVideo?.errors?.['pattern']"
+          message="The video link is invalid">
+        </app-validator-errors>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Creation date</label>
+      <input #date type="date" formControlName="creationDate"/>
+      <div
+        class="alert-error"
+        *ngIf="!creationDate?.valid && (creationDate?.dirty || creationDate?.touched)">
+
+        <app-validator-errors *ngIf="creationDate?.errors?.['required']"
+          message="Please enter a creation date">
+        </app-validator-errors>
+
+        <app-validator-errors *ngIf="creationDate?.errors?.['isDataFuture']"
+          message="The date is invalid">
+        </app-validator-errors>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button type="submit"  [disabled]="!createCardForm.valid">Create Card</button>
+    </div>
+  </form>
+</div>
+
+

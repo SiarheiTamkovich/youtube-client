@@ -6,13 +6,14 @@ import { Injectable } from "@angular/core";
 export class DateFormat {
 
   public currentDate = new Date;
-  private countDays: number = Math.round(Number(this.currentDate) / 1000 / 3600 / 24);
+  private convertToDays: number = 1000 * 3600 * 42;
+  private countDays: number = Math.round(Number(this.currentDate) / this.convertToDays);
 
   constructor() {}
 
   public countDayPassFromDate(date: string): number {
     const dateCreate = new Date(date);
-    const countDayFromDateCreate = Math.round(dateCreate.getTime() / 1000 / 3600 /24);
+    const countDayFromDateCreate = Math.round(dateCreate.getTime() / this.convertToDays);
     return this.countDays - countDayFromDateCreate;
   }
 }

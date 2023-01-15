@@ -1,0 +1,14 @@
+<div class="cards-component">
+  <div
+    appGetColorFromDate
+    *ngFor = "let item of (selectVideos$ | async)?.items "
+    class="card"
+    id="{{item.id.videoId}}"
+    [attr.data-date-publish]="item.snippet.publishedAt"
+    >
+    <!-- <h2>{{item.snippet.publishedAt | date:'dd.MM.yyyy'}}</h2> -->
+    <img src="{{item.snippet.thumbnails.medium.url}}" alt="screen-image">
+    <h2>{{item.snippet.title}}</h2>
+    <button (click)="viewItem(item.id.videoId)">more...</button>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { SortDirections } from 'src/app/shared/constants/setting';
 import { SortModel } from '../models/sort.model';
 
 @Injectable({
@@ -7,23 +8,14 @@ import { SortModel } from '../models/sort.model';
 })
 export class YoutubeService {
 
-  public sort: SortModel = {
+  public sort$: BehaviorSubject<SortModel> = new BehaviorSubject({
     byDate: 'no',
     byViews: 'no',
     counterDate: 0,
     counterViews: 0,
     inputFilterValue: '',
-  }
+  });
 
   constructor() { }
 
-  public getDataSort$(): Observable <SortModel>{
-//    console.log(this.sortNew)
-    return of(this.sort);
-  }
-
-  public setDataSort$(sort: SortModel): void {
-  //  console.log(this.sortNew)
-    this.sort = sort;
-  }
 }
